@@ -1,0 +1,598 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E2E234AF25BD8A3400C1C9DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E234AE25BD8A3400C1C9DC /* AppDelegate.swift */; };
+		E2E234B125BD8A3400C1C9DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E234B025BD8A3400C1C9DC /* SceneDelegate.swift */; };
+		E2E234B325BD8A3400C1C9DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E234B225BD8A3400C1C9DC /* ViewController.swift */; };
+		E2E234B625BD8A3400C1C9DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2E234B425BD8A3400C1C9DC /* Main.storyboard */; };
+		E2E234B825BD8A3500C1C9DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2E234B725BD8A3500C1C9DC /* Assets.xcassets */; };
+		E2E234BB25BD8A3500C1C9DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2E234B925BD8A3500C1C9DC /* LaunchScreen.storyboard */; };
+		E2E234C625BD8A3500C1C9DC /* UPI_PayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E234C525BD8A3500C1C9DC /* UPI_PayTests.swift */; };
+		E2E234D125BD8A3500C1C9DC /* UPI_PayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E234D025BD8A3500C1C9DC /* UPI_PayUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E2E234C225BD8A3500C1C9DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2E234A325BD8A3400C1C9DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E2E234AA25BD8A3400C1C9DC;
+			remoteInfo = "UPI Pay";
+		};
+		E2E234CD25BD8A3500C1C9DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2E234A325BD8A3400C1C9DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E2E234AA25BD8A3400C1C9DC;
+			remoteInfo = "UPI Pay";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E2E234AB25BD8A3400C1C9DC /* UPI Pay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UPI Pay.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2E234AE25BD8A3400C1C9DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E2E234B025BD8A3400C1C9DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E2E234B225BD8A3400C1C9DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E2E234B525BD8A3400C1C9DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E2E234B725BD8A3500C1C9DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E2E234BA25BD8A3500C1C9DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E2E234BC25BD8A3500C1C9DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2E234C125BD8A3500C1C9DC /* UPI PayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UPI PayTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2E234C525BD8A3500C1C9DC /* UPI_PayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPI_PayTests.swift; sourceTree = "<group>"; };
+		E2E234C725BD8A3500C1C9DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2E234CC25BD8A3500C1C9DC /* UPI PayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UPI PayUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2E234D025BD8A3500C1C9DC /* UPI_PayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPI_PayUITests.swift; sourceTree = "<group>"; };
+		E2E234D225BD8A3500C1C9DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E2E234A825BD8A3400C1C9DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2E234BE25BD8A3500C1C9DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2E234C925BD8A3500C1C9DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E2E234A225BD8A3400C1C9DC = {
+			isa = PBXGroup;
+			children = (
+				E2E234AD25BD8A3400C1C9DC /* UPI Pay */,
+				E2E234C425BD8A3500C1C9DC /* UPI PayTests */,
+				E2E234CF25BD8A3500C1C9DC /* UPI PayUITests */,
+				E2E234AC25BD8A3400C1C9DC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E2E234AC25BD8A3400C1C9DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E2E234AB25BD8A3400C1C9DC /* UPI Pay.app */,
+				E2E234C125BD8A3500C1C9DC /* UPI PayTests.xctest */,
+				E2E234CC25BD8A3500C1C9DC /* UPI PayUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E2E234AD25BD8A3400C1C9DC /* UPI Pay */ = {
+			isa = PBXGroup;
+			children = (
+				E2E234AE25BD8A3400C1C9DC /* AppDelegate.swift */,
+				E2E234B025BD8A3400C1C9DC /* SceneDelegate.swift */,
+				E2E234B225BD8A3400C1C9DC /* ViewController.swift */,
+				E2E234B425BD8A3400C1C9DC /* Main.storyboard */,
+				E2E234B725BD8A3500C1C9DC /* Assets.xcassets */,
+				E2E234B925BD8A3500C1C9DC /* LaunchScreen.storyboard */,
+				E2E234BC25BD8A3500C1C9DC /* Info.plist */,
+			);
+			path = "UPI Pay";
+			sourceTree = "<group>";
+		};
+		E2E234C425BD8A3500C1C9DC /* UPI PayTests */ = {
+			isa = PBXGroup;
+			children = (
+				E2E234C525BD8A3500C1C9DC /* UPI_PayTests.swift */,
+				E2E234C725BD8A3500C1C9DC /* Info.plist */,
+			);
+			path = "UPI PayTests";
+			sourceTree = "<group>";
+		};
+		E2E234CF25BD8A3500C1C9DC /* UPI PayUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E2E234D025BD8A3500C1C9DC /* UPI_PayUITests.swift */,
+				E2E234D225BD8A3500C1C9DC /* Info.plist */,
+			);
+			path = "UPI PayUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E2E234AA25BD8A3400C1C9DC /* UPI Pay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2E234D525BD8A3500C1C9DC /* Build configuration list for PBXNativeTarget "UPI Pay" */;
+			buildPhases = (
+				E2E234A725BD8A3400C1C9DC /* Sources */,
+				E2E234A825BD8A3400C1C9DC /* Frameworks */,
+				E2E234A925BD8A3400C1C9DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UPI Pay";
+			productName = "UPI Pay";
+			productReference = E2E234AB25BD8A3400C1C9DC /* UPI Pay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E2E234C025BD8A3500C1C9DC /* UPI PayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2E234D825BD8A3500C1C9DC /* Build configuration list for PBXNativeTarget "UPI PayTests" */;
+			buildPhases = (
+				E2E234BD25BD8A3500C1C9DC /* Sources */,
+				E2E234BE25BD8A3500C1C9DC /* Frameworks */,
+				E2E234BF25BD8A3500C1C9DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2E234C325BD8A3500C1C9DC /* PBXTargetDependency */,
+			);
+			name = "UPI PayTests";
+			productName = "UPI PayTests";
+			productReference = E2E234C125BD8A3500C1C9DC /* UPI PayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E2E234CB25BD8A3500C1C9DC /* UPI PayUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E2E234DB25BD8A3500C1C9DC /* Build configuration list for PBXNativeTarget "UPI PayUITests" */;
+			buildPhases = (
+				E2E234C825BD8A3500C1C9DC /* Sources */,
+				E2E234C925BD8A3500C1C9DC /* Frameworks */,
+				E2E234CA25BD8A3500C1C9DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E2E234CE25BD8A3500C1C9DC /* PBXTargetDependency */,
+			);
+			name = "UPI PayUITests";
+			productName = "UPI PayUITests";
+			productReference = E2E234CC25BD8A3500C1C9DC /* UPI PayUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E2E234A325BD8A3400C1C9DC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					E2E234AA25BD8A3400C1C9DC = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					E2E234C025BD8A3500C1C9DC = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = E2E234AA25BD8A3400C1C9DC;
+					};
+					E2E234CB25BD8A3500C1C9DC = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = E2E234AA25BD8A3400C1C9DC;
+					};
+				};
+			};
+			buildConfigurationList = E2E234A625BD8A3400C1C9DC /* Build configuration list for PBXProject "UPI Pay" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E2E234A225BD8A3400C1C9DC;
+			productRefGroup = E2E234AC25BD8A3400C1C9DC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E2E234AA25BD8A3400C1C9DC /* UPI Pay */,
+				E2E234C025BD8A3500C1C9DC /* UPI PayTests */,
+				E2E234CB25BD8A3500C1C9DC /* UPI PayUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E2E234A925BD8A3400C1C9DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2E234BB25BD8A3500C1C9DC /* LaunchScreen.storyboard in Resources */,
+				E2E234B825BD8A3500C1C9DC /* Assets.xcassets in Resources */,
+				E2E234B625BD8A3400C1C9DC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2E234BF25BD8A3500C1C9DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2E234CA25BD8A3500C1C9DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E2E234A725BD8A3400C1C9DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2E234B325BD8A3400C1C9DC /* ViewController.swift in Sources */,
+				E2E234AF25BD8A3400C1C9DC /* AppDelegate.swift in Sources */,
+				E2E234B125BD8A3400C1C9DC /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2E234BD25BD8A3500C1C9DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2E234C625BD8A3500C1C9DC /* UPI_PayTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E2E234C825BD8A3500C1C9DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2E234D125BD8A3500C1C9DC /* UPI_PayUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E2E234C325BD8A3500C1C9DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E2E234AA25BD8A3400C1C9DC /* UPI Pay */;
+			targetProxy = E2E234C225BD8A3500C1C9DC /* PBXContainerItemProxy */;
+		};
+		E2E234CE25BD8A3500C1C9DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E2E234AA25BD8A3400C1C9DC /* UPI Pay */;
+			targetProxy = E2E234CD25BD8A3500C1C9DC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E2E234B425BD8A3400C1C9DC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E2E234B525BD8A3400C1C9DC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E2E234B925BD8A3500C1C9DC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E2E234BA25BD8A3500C1C9DC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E2E234D325BD8A3500C1C9DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E2E234D425BD8A3500C1C9DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E2E234D625BD8A3500C1C9DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4D6BHD95NM;
+				INFOPLIST_FILE = "UPI Pay/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "blindPolaroid.Page.UPI-Pay";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E2E234D725BD8A3500C1C9DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4D6BHD95NM;
+				INFOPLIST_FILE = "UPI Pay/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "blindPolaroid.Page.UPI-Pay";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E2E234D925BD8A3500C1C9DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4D6BHD95NM;
+				INFOPLIST_FILE = "UPI PayTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "blindPolaroid.Page.UPI-PayTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UPI Pay.app/UPI Pay";
+			};
+			name = Debug;
+		};
+		E2E234DA25BD8A3500C1C9DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4D6BHD95NM;
+				INFOPLIST_FILE = "UPI PayTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "blindPolaroid.Page.UPI-PayTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UPI Pay.app/UPI Pay";
+			};
+			name = Release;
+		};
+		E2E234DC25BD8A3500C1C9DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4D6BHD95NM;
+				INFOPLIST_FILE = "UPI PayUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "blindPolaroid.Page.UPI-PayUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "UPI Pay";
+			};
+			name = Debug;
+		};
+		E2E234DD25BD8A3500C1C9DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4D6BHD95NM;
+				INFOPLIST_FILE = "UPI PayUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "blindPolaroid.Page.UPI-PayUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "UPI Pay";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E2E234A625BD8A3400C1C9DC /* Build configuration list for PBXProject "UPI Pay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2E234D325BD8A3500C1C9DC /* Debug */,
+				E2E234D425BD8A3500C1C9DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2E234D525BD8A3500C1C9DC /* Build configuration list for PBXNativeTarget "UPI Pay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2E234D625BD8A3500C1C9DC /* Debug */,
+				E2E234D725BD8A3500C1C9DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2E234D825BD8A3500C1C9DC /* Build configuration list for PBXNativeTarget "UPI PayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2E234D925BD8A3500C1C9DC /* Debug */,
+				E2E234DA25BD8A3500C1C9DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E2E234DB25BD8A3500C1C9DC /* Build configuration list for PBXNativeTarget "UPI PayUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2E234DC25BD8A3500C1C9DC /* Debug */,
+				E2E234DD25BD8A3500C1C9DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E2E234A325BD8A3400C1C9DC /* Project object */;
+}
