@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E22ED81F25BD8CB300FC4B7B /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22ED81E25BD8CB300FC4B7B /* HomePageViewController.swift */; };
+		E22ED82425BD8E5D00FC4B7B /* PayingValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22ED82325BD8E5C00FC4B7B /* PayingValueViewController.swift */; };
+		E22ED82925BD8E9800FC4B7B /* UPIPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22ED82825BD8E9800FC4B7B /* UPIPinViewController.swift */; };
+		E22ED82E25BD8FFD00FC4B7B /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22ED82D25BD8FFD00FC4B7B /* PersonViewController.swift */; };
 		E2E234AF25BD8A3400C1C9DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E234AE25BD8A3400C1C9DC /* AppDelegate.swift */; };
 		E2E234B125BD8A3400C1C9DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E234B025BD8A3400C1C9DC /* SceneDelegate.swift */; };
 		E2E234B325BD8A3400C1C9DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E234B225BD8A3400C1C9DC /* ViewController.swift */; };
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E22ED81E25BD8CB300FC4B7B /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		E22ED82325BD8E5C00FC4B7B /* PayingValueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayingValueViewController.swift; sourceTree = "<group>"; };
+		E22ED82825BD8E9800FC4B7B /* UPIPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIPinViewController.swift; sourceTree = "<group>"; };
+		E22ED82D25BD8FFD00FC4B7B /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		E2E234AB25BD8A3400C1C9DC /* UPI Pay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UPI Pay.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2E234AE25BD8A3400C1C9DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2E234B025BD8A3400C1C9DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,13 +107,15 @@
 		E2E234AD25BD8A3400C1C9DC /* UPI Pay */ = {
 			isa = PBXGroup;
 			children = (
-				E2E234AE25BD8A3400C1C9DC /* AppDelegate.swift */,
-				E2E234B025BD8A3400C1C9DC /* SceneDelegate.swift */,
 				E2E234B225BD8A3400C1C9DC /* ViewController.swift */,
+				E22ED81E25BD8CB300FC4B7B /* HomePageViewController.swift */,
+				E22ED82D25BD8FFD00FC4B7B /* PersonViewController.swift */,
+				E22ED82325BD8E5C00FC4B7B /* PayingValueViewController.swift */,
+				E22ED82825BD8E9800FC4B7B /* UPIPinViewController.swift */,
 				E2E234B425BD8A3400C1C9DC /* Main.storyboard */,
 				E2E234B725BD8A3500C1C9DC /* Assets.xcassets */,
-				E2E234B925BD8A3500C1C9DC /* LaunchScreen.storyboard */,
 				E2E234BC25BD8A3500C1C9DC /* Info.plist */,
+				E2E234E125BD8A9100C1C9DC /* Supporters */,
 			);
 			path = "UPI Pay";
 			sourceTree = "<group>";
@@ -126,6 +136,16 @@
 				E2E234D225BD8A3500C1C9DC /* Info.plist */,
 			);
 			path = "UPI PayUITests";
+			sourceTree = "<group>";
+		};
+		E2E234E125BD8A9100C1C9DC /* Supporters */ = {
+			isa = PBXGroup;
+			children = (
+				E2E234AE25BD8A3400C1C9DC /* AppDelegate.swift */,
+				E2E234B025BD8A3400C1C9DC /* SceneDelegate.swift */,
+				E2E234B925BD8A3500C1C9DC /* LaunchScreen.storyboard */,
+			);
+			path = Supporters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +278,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E22ED81F25BD8CB300FC4B7B /* HomePageViewController.swift in Sources */,
 				E2E234B325BD8A3400C1C9DC /* ViewController.swift in Sources */,
 				E2E234AF25BD8A3400C1C9DC /* AppDelegate.swift in Sources */,
+				E22ED82925BD8E9800FC4B7B /* UPIPinViewController.swift in Sources */,
 				E2E234B125BD8A3400C1C9DC /* SceneDelegate.swift in Sources */,
+				E22ED82425BD8E5D00FC4B7B /* PayingValueViewController.swift in Sources */,
+				E22ED82E25BD8FFD00FC4B7B /* PersonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
