@@ -6,10 +6,14 @@
 //
 
 import UIKit
+protocol payingValueProtocol {
+    func dismissMyself()
+}
 
-class PayingValueViewController: UIViewController {
+class PayingValueViewController: UIViewController, payingValueProtocol {
+    
     var person = PersonInfo()
-    var bankName = "STATE BANK OF INDIA"
+    var bankName = "Punjab National Bank"
     var paymentValue = 0
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -20,6 +24,46 @@ class PayingValueViewController: UIViewController {
             doneButton.isUserInteractionEnabled=true
             doneButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(donePressed)))
         }
+    }
+    
+    
+    @IBOutlet weak var bankView: UIView!{
+        didSet{
+            bankView.layer.cornerRadius = 13
+//            bankView.layer.masksToBounds=true
+            
+//            bankView.layer.shadowColor = UIColor.black.cgColor
+//            bankView.layer.shadowRadius = 10
+//            bankView.layer.shadowOpacity=1
+//            bankView.layer.shadowColor = UIColor.black.cgColor
+//            bankView.layer.shadowOpacity = 0.4
+//            bankView.layer.shadowOffset = .zero
+//            bankView.layer.shadowRadius = 4
+        }
+    }
+    
+    @IBOutlet weak var firstBankView: UIView!{
+        didSet{
+            firstBankView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(firstBankSelected)))
+        }
+    }
+    @IBOutlet weak var firsBankTickIV: UIView!
+    
+    @IBOutlet weak var secondBankView: UIView!{
+        didSet{
+            secondBankView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(secondBankSelected)))
+        }
+    }
+    @IBOutlet weak var secondBankTickIV: UIImageView!
+    @objc func firstBankSelected(){
+        firsBankTickIV.isHidden=false
+        secondBankTickIV.isHidden=true
+        self.bankName = "Punjab National Bank"
+    }
+    @objc func secondBankSelected(){
+        firsBankTickIV.isHidden=true
+        secondBankTickIV.isHidden=false
+        self.bankName = "Axis Bank"
     }
     
     @objc func donePressed(){
@@ -44,8 +88,10 @@ class PayingValueViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addDoneButtonOnKeyboard()
         nameLabel.text = person.name
         numberLabel.text = String(person.number)
+//        self.amountTextField.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
     @IBAction func cancelPressed(_ sender: Any) {
@@ -54,10 +100,31 @@ class PayingValueViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier=="givePasscode", let vc = segue.destination as? UPIPinViewController{
+            vc.delegate=self
             vc.person=self.person
             vc.bankName=self.bankName
             vc.paymentValue=self.paymentValue
         }
     }
+    
+    func dismissMyself() {
+        self.dismiss(animated: false, completion: nil)
+    }
+    func addDoneButtonOnKeyboard(){
+            let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+            doneToolbar.barStyle = .default
 
+            let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+            let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+
+            let items = [flexSpace, done]
+            doneToolbar.items = items
+            doneToolbar.sizeToFit()
+
+        amountTextField.inputAccessoryView = doneToolbar
+        }
+
+        @objc func doneButtonAction(){
+            amountTextField.resignFirstResponder()
+        }
 }

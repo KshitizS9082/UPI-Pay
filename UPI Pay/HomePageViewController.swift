@@ -41,6 +41,11 @@ class HomePageViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var hintUserImageView: UIImageView!
     @IBOutlet weak var hintUserLabel: UILabel!
     @IBOutlet weak var hintUserNumberLabel: UILabel!
+    @IBOutlet weak var personImageView: UIImageView!{
+        didSet{
+            personImageView.layer.cornerRadius = personImageView.layer.frame.width/2.0
+        }
+    }
     
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
@@ -88,5 +93,11 @@ class HomePageViewController: UIViewController, UITextFieldDelegate {
                 vc.person = self.payeeList[selectedUser]
             }
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     }
 }
