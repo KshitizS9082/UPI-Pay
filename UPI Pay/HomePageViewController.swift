@@ -53,6 +53,7 @@ class HomePageViewController: UIViewController, UITextFieldDelegate {
             qrImageView.isHidden=false
             mobileNumberTextField.isHidden=true
             hintUserView.isHidden=true
+            mobileNumberTextField.resignFirstResponder()
         }else{
             qrImageView.isHidden=true
             mobileNumberTextField.isHidden=false
