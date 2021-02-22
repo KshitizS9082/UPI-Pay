@@ -140,7 +140,6 @@ class PayingValueViewController: UIViewController, payingValueProtocol {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("trynna segue")
         if segue.identifier=="givePasscode", let vc = segue.destination as? UPIPinViewController{
             vc.delegate=self
             vc.person=self.person
