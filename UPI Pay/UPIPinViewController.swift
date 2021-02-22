@@ -15,7 +15,7 @@ class UPIPinViewController: UIViewController {
         case actionSheetAfterPswd
         case nothing
     }
-    var notificationStyle = notificationStyleEnum.alertAfterPswd
+    var notificationStyle = notificationStyleEnum.actionSheetAfterPswd
     var person = PersonInfo()
     var bankName = "STATE BANK OF INDIA"
     var paymentValue = 0
@@ -83,7 +83,24 @@ class UPIPinViewController: UIViewController {
                                                 }}))
                 self.present(alert, animated: true, completion: nil)
             }else if notificationStyle == .actionSheetAfterPswd{
-                
+                self.pinTextField.resignFirstResponder()
+                let text = "payment worth " + "Rs. " + String(paymentValue) + " is done to " + person.name + " from " + bankName
+                let confirmAction = UIAlertAction(title: "Confirm", style: .default){
+                    UIAlertAction in
+                    print("Payment Succesfull")
+                    self.dismiss(animated: true, completion: nil)
+                    self.delegate?.dismissMyself()
+                }
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel){
+                    UIAlertAction in
+                    print("Payment Canceled")
+                    self.dismiss(animated: true, completion: nil)
+                    self.delegate?.dismissMyself()
+                }
+                let alert = UIAlertController(title: "Confirm payment?", message: text, preferredStyle: .actionSheet)
+                alert.addAction(confirmAction)
+                alert.addAction(cancelAction)
+                self.present(alert, animated: true, completion: nil)
             }else{
                 let alert = UIAlertController(title: "Paymnet Succesfull", message: "Payment worth \(paymentValue) done to \(person.name)", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
