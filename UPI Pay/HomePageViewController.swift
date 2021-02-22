@@ -9,10 +9,10 @@ import UIKit
 
 class HomePageViewController: UIViewController, UITextFieldDelegate {
     var payeeList = [
-        PersonInfo(number: 111, name: "Airtel", image: "Airtel.jpg"),
+        PersonInfo(number: 111, name: "Airtel", image: "Airtel.jpg", verifications: .verified),
         PersonInfo(number: 222, name: "Vodafone", image: "Vodafone.jpg"),
-        PersonInfo(number: 333, name: "Jio", image: "Jio.jpg"),
-        PersonInfo(number: 444, name: "Idea", image: "Idea.jpg")
+        PersonInfo(number: 333, name: "Jio", image: "Jio.jpg", verifications: .suspected),
+        PersonInfo(number: 444, name: "Idea", image: "Idea.jpg", verifications: .unknown)
     ]
 
     @IBOutlet weak var segmentControl: UISegmentedControl!
@@ -73,7 +73,7 @@ class HomePageViewController: UIViewController, UITextFieldDelegate {
             if let query = textField.text{
                 if String(payeeList[ind].number).hasPrefix(query){
                     selectedUser=ind
-                    print("selected user ind = \(ind)")
+//                    print("selected user ind = \(ind)")
                     setHintUserView()
                     break
                 }

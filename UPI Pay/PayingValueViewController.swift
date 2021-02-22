@@ -12,8 +12,15 @@ protocol payingValueProtocol {
 
 class PayingValueViewController: UIViewController, payingValueProtocol {
     
+    enum BankChoosingStyle{
+        case default_hide
+        case default_show
+        case choose_before
+        case choose_after
+    }
+    var choosingStyle = BankChoosingStyle.choose_before
     var person = PersonInfo()
-    var bankName = "Punjab National Bank"
+    var bankName: String? = "Punjab National Bank"
     var paymentValue = 0
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -67,6 +74,22 @@ class PayingValueViewController: UIViewController, payingValueProtocol {
     }
     
     @objc func donePressed(){
+        if bankName==nil{
+            let alert = UIAlertController(title: "Alert", message: "No Bank Account Selected", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                  switch action.style{
+                  case .default:
+                        print("default")
+                  case .cancel:
+                        print("cancel")
+                  case .destructive:
+                        print("destructive")
+                  @unknown default:
+                    print("idk lol 2.0")
+                  }}))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         if let intval = Int(amountTextField.text ?? "0"){
             paymentValue=intval
         }else{
@@ -92,6 +115,24 @@ class PayingValueViewController: UIViewController, payingValueProtocol {
         nameLabel.text = person.name
         numberLabel.text = String(person.number)
 //        self.amountTextField.becomeFirstResponder()
+        switch self.choosingStyle {
+        case .default_hide:
+            self.bankName = "Punjab National Bank"
+            self.amountTextField.becomeFirstResponder()
+        case .default_show:
+            self.bankName = "Punjab National Bank"
+            self.amountTextField.resignFirstResponder()
+        case .choose_after:
+            self.bankName = nil
+            firsBankTickIV.isHidden=true
+            secondBankTickIV.isHidden=true
+            self.amountTextField.becomeFirstResponder()
+        case .choose_before:
+            self.bankName = nil
+            firsBankTickIV.isHidden=true
+            secondBankTickIV.isHidden=true
+            self.amountTextField.resignFirstResponder()
+        }
         // Do any additional setup after loading the view.
     }
     @IBAction func cancelPressed(_ sender: Any) {
@@ -99,14 +140,34 @@ class PayingValueViewController: UIViewController, payingValueProtocol {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("trynna segue")
         if segue.identifier=="givePasscode", let vc = segue.destination as? UPIPinViewController{
             vc.delegate=self
             vc.person=self.person
-            vc.bankName=self.bankName
+            vc.bankName=self.bankName!
             vc.paymentValue=self.paymentValue
         }
     }
-    
+//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+//        print("checkin segue")
+//        if bankName==nil{
+//            let alert = UIAlertController(title: "Alert", message: "No Bank Account Selected", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+//                  switch action.style{
+//                  case .default:
+//                        print("default")
+//                  case .cancel:
+//                        print("cancel")
+//                  case .destructive:
+//                        print("destructive")
+//                  @unknown default:
+//                    print("idk lol 2.0")
+//                  }}))
+//            self.present(alert, animated: true, completion: nil)
+//            return false
+//        }
+//        return true;
+//    }
     func dismissMyself() {
         self.dismiss(animated: false, completion: nil)
     }
