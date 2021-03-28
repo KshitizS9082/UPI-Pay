@@ -7,7 +7,8 @@
 
 import UIKit
 
-class HomePageViewController: UIViewController, UITextFieldDelegate {
+
+class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     var payeeList = [
         PersonInfo(number: 111, name: "Airtel", image: "Airtel.jpg", verifications: .verified),
         PersonInfo(number: 222, name: "Vodafone", image: "Vodafone.jpg"),
@@ -22,6 +23,7 @@ class HomePageViewController: UIViewController, UITextFieldDelegate {
             qrImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(qrSegue)))
         }
     }
+    //QR Format: http://number/Value/debit
     @IBOutlet weak var mobileNumberTextField: UITextField!{
         didSet{
             mobileNumberTextField.delegate=self
@@ -46,19 +48,91 @@ class HomePageViewController: UIViewController, UITextFieldDelegate {
             personImageView.layer.cornerRadius = personImageView.layer.frame.width/2.0
         }
     }
-    
+    @IBOutlet weak var qrGalleryButton: UIButton!
+    var person: PersonInfo?
+    var bankName: String? = "Punjab National Bank"
+    var paymentValue = 0
+    var imagePicker = UIImagePickerController()
+    @IBAction func grGalleryButClicked(_ sender: Any) {
+        qrImagePicker()
+    }
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex==0{
             qrImageView.isHidden=false
+            qrGalleryButton.isHidden=false
             mobileNumberTextField.isHidden=true
             hintUserView.isHidden=true
             mobileNumberTextField.resignFirstResponder()
         }else{
             qrImageView.isHidden=true
+            qrGalleryButton.isHidden=true
             mobileNumberTextField.isHidden=false
             hintUserView.isHidden=true
         }
+    }
+    func qrImagePicker() {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            print("Button capture")
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+            
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    func detectQRCode(_ image: UIImage?) -> [CIFeature]? {
+        if let image = image, let ciImage = CIImage.init(image: image){
+            var options: [String: Any]
+            let context = CIContext()
+            options = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
+            let qrDetector = CIDetector(ofType: CIDetectorTypeQRCode, context: context, options: options)
+            if ciImage.properties.keys.contains((kCGImagePropertyOrientation as String)){
+                options = [CIDetectorImageOrientation: ciImage.properties[(kCGImagePropertyOrientation as String)] ?? 1]
+            } else {
+                options = [CIDetectorImageOrientation: 1]
+            }
+            let features = qrDetector?.features(in: ciImage, options: options)
+            return features
+
+        }
+        return nil
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        var newImage: UIImage
+
+        if let possibleImage = info[.editedImage] as? UIImage {
+            newImage = possibleImage
+        } else if let possibleImage = info[.originalImage] as? UIImage {
+            newImage = possibleImage
+        } else {
+            return
+        }
+
+        // do something interesting here!
+        print(newImage.size)
+        qrImageView.image = newImage
+        dismiss(animated: true)
+        
+        if let features = detectQRCode(newImage), !features.isEmpty{
+            for case let row as CIQRCodeFeature in features{
+                if var decode = row.messageString{
+                    decode = String(decode.dropFirst(7))
+                    let decodeArr = decode.split{$0 == "/"}.map(String.init)
+                    for person in payeeList{
+                        if person.number == Int(decodeArr[0])!{
+                            self.person = person
+                        }
+                    }
+                    self.paymentValue = Int(decodeArr[1])!
+                    print("perform segue: givePasscodeHP")
+                    performSegue(withIdentifier: "givePasscodeHP", sender: self)
+                }
+            }
+        }
+        
     }
     var selectedUser = 0
     @objc func qrSegue(){
@@ -93,6 +167,11 @@ class HomePageViewController: UIViewController, UITextFieldDelegate {
 //                print("person = \(self.payeeList[selectedUser])")
                 vc.person = self.payeeList[selectedUser]
             }
+        }else if segue.identifier=="givePasscodeHP", let vc = segue.destination as? UPIPinViewController{
+//            vc.delegate=self
+            vc.person=self.person!
+            vc.bankName=self.bankName!
+            vc.paymentValue=self.paymentValue
         }
     }
     override func viewWillAppear(_ animated: Bool) {

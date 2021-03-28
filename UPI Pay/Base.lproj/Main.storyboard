@@ -85,6 +85,19 @@
                                     <constraint firstAttribute="width" constant="65" id="Vz5-ZL-SWm"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvb-UV-jkF">
+                                <rect key="frame" x="354" y="505" width="45" height="38"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="GfO-jO-kE8"/>
+                                    <constraint firstAttribute="width" secondItem="Mvb-UV-jkF" secondAttribute="height" multiplier="13:11" id="Xfo-LM-1pr"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="photo.on.rectangle" catalog="system"/>
+                                <connections>
+                                    <action selector="grGalleryButClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eAD-OA-XKn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
@@ -101,7 +114,9 @@
                             <constraint firstItem="Ql9-Of-Yv0" firstAttribute="top" secondItem="m23-eD-LfH" secondAttribute="bottom" constant="8" symbolic="YES" id="Pgw-83-VVn"/>
                             <constraint firstItem="7Ab-ce-ReA" firstAttribute="top" secondItem="GvM-le-IpY" secondAttribute="bottom" constant="163" id="Qt3-hG-1Jy"/>
                             <constraint firstItem="Ql9-Of-Yv0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TAg-AC-DTa"/>
+                            <constraint firstItem="Mvb-UV-jkF" firstAttribute="leading" secondItem="7Ab-ce-ReA" secondAttribute="trailing" constant="5" id="e6C-p9-MzT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5gm-aF-AvA" secondAttribute="trailing" constant="20" id="hEC-rQ-fur"/>
+                            <constraint firstItem="Mvb-UV-jkF" firstAttribute="centerY" secondItem="7Ab-ce-ReA" secondAttribute="centerY" id="ljl-O3-7Z0"/>
                             <constraint firstItem="m23-eD-LfH" firstAttribute="top" secondItem="GvM-le-IpY" secondAttribute="bottom" constant="101" id="qoG-JZ-qYj"/>
                             <constraint firstItem="Ql9-Of-Yv0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="tdc-GG-pAQ"/>
                         </constraints>
@@ -114,14 +129,16 @@
                         <outlet property="hintUserView" destination="Ql9-Of-Yv0" id="8AQ-Hi-Zbk"/>
                         <outlet property="mobileNumberTextField" destination="m23-eD-LfH" id="ffM-lp-EkF"/>
                         <outlet property="personImageView" destination="5gm-aF-AvA" id="7YZ-Ko-8FN"/>
+                        <outlet property="qrGalleryButton" destination="Mvb-UV-jkF" id="kGs-xC-c3R"/>
                         <outlet property="qrImageView" destination="7Ab-ce-ReA" id="haF-jM-lcp"/>
                         <outlet property="segmentControl" destination="GvM-le-IpY" id="0Ro-Az-moR"/>
                         <segue destination="Xyj-Vq-8HX" kind="show" identifier="personViewSegue" id="B01-sd-m0f"/>
+                        <segue destination="B8K-AC-xRu" kind="presentation" identifier="givePasscodeHP" id="0VJ-mP-GA3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-100.00000000000001" y="116.51785714285714"/>
+            <point key="canvasLocation" x="-96" y="61"/>
         </scene>
         <!--Person View Controller-->
         <scene sceneID="mV1-54-2WG">
@@ -700,6 +717,9 @@
             <point key="canvasLocation" x="-1010.144927536232" y="116.51785714285714"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0VJ-mP-GA3"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="UPILogo" width="370.03460693359375" height="130.72819519042969"/>
         <image name="arrow.right.circle.fill" catalog="system" width="128" height="121"/>
@@ -708,8 +728,12 @@
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="person" width="76" height="62.5"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
+        <image name="photo.on.rectangle" catalog="system" width="128" height="96"/>
         <image name="pnb" width="28.5" height="18"/>
         <image name="scanQR" width="387" height="431"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
