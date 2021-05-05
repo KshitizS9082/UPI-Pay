@@ -22,6 +22,7 @@ class PayingValueViewController: UIViewController, payingValueProtocol {
     var person = PersonInfo()
     var bankName: String? = "Punjab National Bank"
     var paymentValue = 0
+    var delegate: RequestMoneyProtocol?
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
@@ -65,12 +66,12 @@ class PayingValueViewController: UIViewController, payingValueProtocol {
     @objc func firstBankSelected(){
         firsBankTickIV.isHidden=false
         secondBankTickIV.isHidden=true
-        self.bankName = "Punjab National Bank"
+        self.bankName = "ABC National Bank"
     }
     @objc func secondBankSelected(){
         firsBankTickIV.isHidden=true
         secondBankTickIV.isHidden=false
-        self.bankName = "Axis Bank"
+        self.bankName = "DEF Bank"
     }
     
     @objc func donePressed(){
@@ -115,6 +116,10 @@ class PayingValueViewController: UIViewController, payingValueProtocol {
         nameLabel.text = person.name
         numberLabel.text = String(person.number)
 //        self.amountTextField.becomeFirstResponder()
+        if paymentValue != 0{
+            amountTextField.text = String(paymentValue)
+            amountTextField.isUserInteractionEnabled=false
+        }
         switch self.choosingStyle {
         case .default_hide:
             self.bankName = "Punjab National Bank"
@@ -168,23 +173,26 @@ class PayingValueViewController: UIViewController, payingValueProtocol {
 //        return true;
 //    }
     func dismissMyself() {
-        self.dismiss(animated: false, completion: nil)
+//        self.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: true) {
+            self.delegate?.dismissMe()
+        }
     }
     func addDoneButtonOnKeyboard(){
-            let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
-            doneToolbar.barStyle = .default
-
-            let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-            let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
-
-            let items = [flexSpace, done]
-            doneToolbar.items = items
-            doneToolbar.sizeToFit()
-
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolbar.barStyle = .default
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+        
+        let items = [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
         amountTextField.inputAccessoryView = doneToolbar
-        }
-
-        @objc func doneButtonAction(){
-            amountTextField.resignFirstResponder()
-        }
+    }
+    
+    @objc func doneButtonAction(){
+        amountTextField.resignFirstResponder()
+    }
 }

@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2020D70264247AC005577E3 /* RequestMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2020D6F264247AC005577E3 /* RequestMoneyViewController.swift */; };
 		E22ED81F25BD8CB300FC4B7B /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22ED81E25BD8CB300FC4B7B /* HomePageViewController.swift */; };
 		E22ED82425BD8E5D00FC4B7B /* PayingValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22ED82325BD8E5C00FC4B7B /* PayingValueViewController.swift */; };
 		E22ED82925BD8E9800FC4B7B /* UPIPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22ED82825BD8E9800FC4B7B /* UPIPinViewController.swift */; };
 		E22ED82E25BD8FFD00FC4B7B /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22ED82D25BD8FFD00FC4B7B /* PersonViewController.swift */; };
 		E2E234AF25BD8A3400C1C9DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E234AE25BD8A3400C1C9DC /* AppDelegate.swift */; };
-		E2E234B125BD8A3400C1C9DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E234B025BD8A3400C1C9DC /* SceneDelegate.swift */; };
 		E2E234B325BD8A3400C1C9DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E234B225BD8A3400C1C9DC /* ViewController.swift */; };
 		E2E234B625BD8A3400C1C9DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2E234B425BD8A3400C1C9DC /* Main.storyboard */; };
 		E2E234B825BD8A3500C1C9DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2E234B725BD8A3500C1C9DC /* Assets.xcassets */; };
@@ -39,13 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E2020D6F264247AC005577E3 /* RequestMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMoneyViewController.swift; sourceTree = "<group>"; };
 		E22ED81E25BD8CB300FC4B7B /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		E22ED82325BD8E5C00FC4B7B /* PayingValueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayingValueViewController.swift; sourceTree = "<group>"; };
 		E22ED82825BD8E9800FC4B7B /* UPIPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIPinViewController.swift; sourceTree = "<group>"; };
 		E22ED82D25BD8FFD00FC4B7B /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		E2E234AB25BD8A3400C1C9DC /* UPI Pay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UPI Pay.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2E234AE25BD8A3400C1C9DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E2E234B025BD8A3400C1C9DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E2E234B225BD8A3400C1C9DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E2E234B525BD8A3400C1C9DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2E234B725BD8A3500C1C9DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,6 +109,7 @@
 			children = (
 				E2E234B225BD8A3400C1C9DC /* ViewController.swift */,
 				E22ED81E25BD8CB300FC4B7B /* HomePageViewController.swift */,
+				E2020D6F264247AC005577E3 /* RequestMoneyViewController.swift */,
 				E22ED82D25BD8FFD00FC4B7B /* PersonViewController.swift */,
 				E22ED82325BD8E5C00FC4B7B /* PayingValueViewController.swift */,
 				E22ED82825BD8E9800FC4B7B /* UPIPinViewController.swift */,
@@ -142,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				E2E234AE25BD8A3400C1C9DC /* AppDelegate.swift */,
-				E2E234B025BD8A3400C1C9DC /* SceneDelegate.swift */,
 				E2E234B925BD8A3500C1C9DC /* LaunchScreen.storyboard */,
 			);
 			path = Supporters;
@@ -282,8 +282,8 @@
 				E2E234B325BD8A3400C1C9DC /* ViewController.swift in Sources */,
 				E2E234AF25BD8A3400C1C9DC /* AppDelegate.swift in Sources */,
 				E22ED82925BD8E9800FC4B7B /* UPIPinViewController.swift in Sources */,
-				E2E234B125BD8A3400C1C9DC /* SceneDelegate.swift in Sources */,
 				E22ED82425BD8E5D00FC4B7B /* PayingValueViewController.swift in Sources */,
+				E2020D70264247AC005577E3 /* RequestMoneyViewController.swift in Sources */,
 				E22ED82E25BD8FFD00FC4B7B /* PersonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

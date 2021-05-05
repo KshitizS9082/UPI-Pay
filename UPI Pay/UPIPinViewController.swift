@@ -15,7 +15,7 @@ class UPIPinViewController: UIViewController {
         case actionSheetAfterPswd
         case nothing
     }
-    var notificationStyle = notificationStyleEnum.actionSheetAfterPswd
+    var notificationStyle = notificationStyleEnum.alertAfterPswd
     var person = PersonInfo()
     var bankName = "STATE BANK OF INDIA"
     var paymentValue = 0
@@ -174,7 +174,5 @@ class UPIPinViewController: UIViewController {
     @IBAction func pinEdittingDidEnd(_ sender: UITextField) {
         
     }
-    
-    
     
 }

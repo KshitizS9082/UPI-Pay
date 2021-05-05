@@ -10,7 +10,7 @@ import UIKit
 
 class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     var payeeList = [
-        PersonInfo(number: 111, name: "Airtel", image: "Airtel.jpg", verifications: .verified),
+        PersonInfo(number: 111, name: "User Name", image: "Airtel.jpg", verifications: .verified),
         PersonInfo(number: 222, name: "Vodafone", image: "Vodafone.jpg"),
         PersonInfo(number: 333, name: "Jio", image: "Jio.jpg", verifications: .suspected),
         PersonInfo(number: 444, name: "Idea", image: "Idea.jpg", verifications: .unknown)
@@ -71,6 +71,15 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
             hintUserView.isHidden=true
         }
     }
+    
+    var requestMessage = ""
+    func handleReceiveMoneyRequest(person: PersonInfo, message: String, value: Int){
+        self.person = person
+        self.paymentValue = value
+        self.requestMessage = message
+        self.performSegue(withIdentifier: "requestPaymentSegue", sender: self)
+    }
+    
     func qrImagePicker() {
         
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
@@ -172,7 +181,15 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
             vc.person=self.person!
             vc.bankName=self.bankName!
             vc.paymentValue=self.paymentValue
+        }else if segue.identifier == "requestPaymentSegue"{
+            if let vc = segue.destination as? RequestMoneyViewController{
+//                print("person = \(self.payeeList[selectedUser])")
+                vc.person = self.person
+                vc.value = self.paymentValue
+                vc.message = self.requestMessage
+            }
         }
+            
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //UIImage.init(named: "transparent.png")
@@ -180,4 +197,5 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
     }
+    
 }
