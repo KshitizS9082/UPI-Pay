@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E2020D70264247AC005577E3 /* RequestMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2020D6F264247AC005577E3 /* RequestMoneyViewController.swift */; };
+		E2020D75264298C0005577E3 /* myAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2020D74264298C0005577E3 /* myAccountViewController.swift */; };
+		E2020D7D26429D3E005577E3 /* ViewBalancePinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2020D7C26429D3E005577E3 /* ViewBalancePinViewController.swift */; };
 		E22ED81F25BD8CB300FC4B7B /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22ED81E25BD8CB300FC4B7B /* HomePageViewController.swift */; };
 		E22ED82425BD8E5D00FC4B7B /* PayingValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22ED82325BD8E5C00FC4B7B /* PayingValueViewController.swift */; };
 		E22ED82925BD8E9800FC4B7B /* UPIPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22ED82825BD8E9800FC4B7B /* UPIPinViewController.swift */; };
@@ -40,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		E2020D6F264247AC005577E3 /* RequestMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMoneyViewController.swift; sourceTree = "<group>"; };
+		E2020D74264298C0005577E3 /* myAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myAccountViewController.swift; sourceTree = "<group>"; };
+		E2020D7C26429D3E005577E3 /* ViewBalancePinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBalancePinViewController.swift; sourceTree = "<group>"; };
 		E22ED81E25BD8CB300FC4B7B /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		E22ED82325BD8E5C00FC4B7B /* PayingValueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayingValueViewController.swift; sourceTree = "<group>"; };
 		E22ED82825BD8E9800FC4B7B /* UPIPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPIPinViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 		E2E234AD25BD8A3400C1C9DC /* UPI Pay */ = {
 			isa = PBXGroup;
 			children = (
+				E2020D74264298C0005577E3 /* myAccountViewController.swift */,
+				E2020D7C26429D3E005577E3 /* ViewBalancePinViewController.swift */,
 				E2E234B225BD8A3400C1C9DC /* ViewController.swift */,
 				E22ED81E25BD8CB300FC4B7B /* HomePageViewController.swift */,
 				E2020D6F264247AC005577E3 /* RequestMoneyViewController.swift */,
@@ -280,11 +286,13 @@
 			files = (
 				E22ED81F25BD8CB300FC4B7B /* HomePageViewController.swift in Sources */,
 				E2E234B325BD8A3400C1C9DC /* ViewController.swift in Sources */,
+				E2020D75264298C0005577E3 /* myAccountViewController.swift in Sources */,
 				E2E234AF25BD8A3400C1C9DC /* AppDelegate.swift in Sources */,
 				E22ED82925BD8E9800FC4B7B /* UPIPinViewController.swift in Sources */,
 				E22ED82425BD8E5D00FC4B7B /* PayingValueViewController.swift in Sources */,
 				E2020D70264247AC005577E3 /* RequestMoneyViewController.swift in Sources */,
 				E22ED82E25BD8FFD00FC4B7B /* PersonViewController.swift in Sources */,
+				E2020D7D26429D3E005577E3 /* ViewBalancePinViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

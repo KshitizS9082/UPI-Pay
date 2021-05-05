@@ -46,7 +46,12 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
     @IBOutlet weak var personImageView: UIImageView!{
         didSet{
             personImageView.layer.cornerRadius = personImageView.layer.frame.width/2.0
+            personImageView.isUserInteractionEnabled=true
+            personImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(personIVSelected)))
         }
+    }
+    @objc func personIVSelected(){
+        performSegue(withIdentifier: "myAcntSegue", sender: self)
     }
     @IBOutlet weak var qrGalleryButton: UIButton!
     var person: PersonInfo?
