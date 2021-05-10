@@ -8,13 +8,13 @@
 import UIKit
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     func registerForPushNotifications() {
-            UNUserNotificationCenter.current()
-                .requestAuthorization(options: [.alert, .sound, .badge]) {(granted, error) in
-                    print("Permission granted: \(granted)")
+        UNUserNotificationCenter.current()
+            .requestAuthorization(options: [.alert, .sound, .badge]) {(granted, error) in
+                print("Permission granted: \(granted)")
             }
     }
     func extractUserInfo(userInfo: [AnyHashable : Any]) -> (title: String, body: String) {
@@ -29,8 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         print("received notification hahaha")
         let info = self.extractUserInfo(userInfo: userInfo)
-//        print("title first ",info.title.first)
-//        print(info.body)
+        //        print("title first ",info.title.first)
+        //        print(info.body)
         
         if info.title == "Payment Request"{
             if let navvc = self.window?.rootViewController as? UINavigationController{
@@ -43,10 +43,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UNUserNotificationCenter.current().delegate = self
         registerForPushNotifications()
         return true
     }
-
+    
+    //    This step will allow your app to show Push Notification even when your app is in foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let userInfo = notification.request.content.userInfo
+        print(userInfo) // the payload that is attached to the push notification
+        // you can customize the notification presentation options. Below code will show notification banner as well as play a sound. If you want to add a badge too, add .badge in the array.
+        completionHandler([.alert,.sound])
+    }
+    
+    
     // MARK: UISceneSession Lifecycle
 //
 //    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
