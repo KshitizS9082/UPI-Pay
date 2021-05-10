@@ -17,13 +17,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print("Permission granted: \(granted)")
             }
     }
+    func extractUserInfo(userInfo: [AnyHashable : Any]) -> (title: String, body: String) {
+        var info = (title: "", body: "")
+        guard let aps = userInfo["aps"] as? [String: Any] else { return info }
+        guard let alert = aps["alert"] as? [String: Any] else { return info }
+        let title = alert["title"] as? String ?? ""
+        let body = alert["body"] as? String ?? ""
+        info = (title: title, body: body)
+        return info
+    }
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         print("received notification hahaha")
+        let info = self.extractUserInfo(userInfo: userInfo)
+//        print("title first ",info.title.first)
+//        print(info.body)
         
-        if let navvc = self.window?.rootViewController as? UINavigationController{
-            print("found navvc")
-            if let vc = navvc.viewControllers.first as? HomePageViewController{
-                vc.handleReceiveMoneyRequest(person: PersonInfo(number: 111, name: "air", image: "image", verifications: .unknown), message: "receieve req msg", value: 100)
+        if info.title == "Payment Request"{
+            if let navvc = self.window?.rootViewController as? UINavigationController{
+                print("found navvc")
+                if let vc = navvc.viewControllers.first as? HomePageViewController{
+                    vc.handleReceiveMoneyRequest(person: PersonInfo(number: 111, name: "air", image: "image", verifications: .unknown), message: "receieve req msg", value: 100)
+                }
             }
         }
     }
