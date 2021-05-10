@@ -111,10 +111,10 @@
 		E2E234AD25BD8A3400C1C9DC /* UPI Pay */ = {
 			isa = PBXGroup;
 			children = (
+				E22ED81E25BD8CB300FC4B7B /* HomePageViewController.swift */,
 				E2020D74264298C0005577E3 /* myAccountViewController.swift */,
 				E2020D7C26429D3E005577E3 /* ViewBalancePinViewController.swift */,
 				E2E234B225BD8A3400C1C9DC /* ViewController.swift */,
-				E22ED81E25BD8CB300FC4B7B /* HomePageViewController.swift */,
 				E2020D6F264247AC005577E3 /* RequestMoneyViewController.swift */,
 				E22ED82D25BD8FFD00FC4B7B /* PersonViewController.swift */,
 				E22ED82325BD8E5C00FC4B7B /* PayingValueViewController.swift */,
