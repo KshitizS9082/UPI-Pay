@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OSLog
 
 
 class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
@@ -15,7 +16,9 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
         PersonInfo(number: 333, name: "Jio", image: "Jio.jpg", verifications: .suspected),
         PersonInfo(number: 444, name: "Idea", image: "Idea.jpg", verifications: .unknown)
     ]
-
+    
+    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.homepage", category: "BTP")
+    
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var qrImageView: UIImageView!{
         didSet{
@@ -51,6 +54,7 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
         }
     }
     @objc func personIVSelected(){
+        logger.notice("selected to go to My account page in homepage in UPI-Pay")
         performSegue(withIdentifier: "myAcntSegue", sender: self)
     }
     @IBOutlet weak var qrGalleryButton: UIButton!
@@ -63,13 +67,16 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
     }
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+        
         if sender.selectedSegmentIndex==0{
+            logger.notice("selected QR Segment in UPI-Pay")
             qrImageView.isHidden=false
             qrGalleryButton.isHidden=false
             mobileNumberTextField.isHidden=true
             hintUserView.isHidden=true
             mobileNumberTextField.resignFirstResponder()
         }else{
+            logger.notice("selected Pay via number Segment in UPI-Pay")
             qrImageView.isHidden=true
             qrGalleryButton.isHidden=true
             mobileNumberTextField.isHidden=false
@@ -82,6 +89,7 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
         self.person = person
         self.paymentValue = value
         self.requestMessage = message
+        logger.notice("showing request Money view in UPI-Pay")
         self.performSegue(withIdentifier: "requestPaymentSegue", sender: self)
     }
     
@@ -93,7 +101,7 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
             imagePicker.delegate = self
             imagePicker.sourceType = .savedPhotosAlbum
             imagePicker.allowsEditing = false
-            
+            logger.notice("preseting QR image picker in UPI-Pay")
             present(imagePicker, animated: true, completion: nil)
         }
     }
@@ -142,6 +150,7 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
                     }
                     self.paymentValue = Int(decodeArr[1])!
                     print("perform segue: givePasscodeHP")
+                    logger.notice("decoded QR and segueing to givePasscodeHP with person= \(self.person?.number ?? 0) and paymentvalue= \(self.paymentValue) in UPI-Pay")
                     performSegue(withIdentifier: "givePasscodeHP", sender: self)
                 }
             }
@@ -158,6 +167,7 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
     
     @objc func textFieldDidChange(_ textField: UITextField) {
 //        print("mobileNumberValueChanged")
+        logger.notice("homepage searching mobile no. \(textField.text ?? "") instance in UPI-Pay")
         for ind in payeeList.indices{
             if let query = textField.text{
                 if String(payeeList[ind].number).hasPrefix(query){
@@ -180,6 +190,7 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
             if let vc = segue.destination as? PersonViewController{
 //                print("person = \(self.payeeList[selectedUser])")
                 vc.person = self.payeeList[selectedUser]
+                self.logger.notice("selected User with number: \(self.payeeList[self.selectedUser].number) in UPI-Pay")
             }
         }else if segue.identifier=="givePasscodeHP", let vc = segue.destination as? UPIPinViewController{
 //            vc.delegate=self
@@ -201,6 +212,9 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        logger.notice("homepage will appear logging instance in UPI-Pay")
     }
-    
+    override func viewDidLoad() {
+//        logger.notice("first logging instance in UPI-Pay")
+    }
 }
