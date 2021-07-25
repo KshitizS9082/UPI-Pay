@@ -63,17 +63,22 @@ class PersonViewController: UIViewController {
         case .verified:
             verifiedImageView.isHidden=false
             verifiedImageView.image = UIImage(systemName: "checkmark.seal.fill")
-            verifiedImageView.tintColor = .systemBlue
+            verifiedImageView.tintColor = .systemGreen
             verificationSymbolMeaning.text = "Verified Seller"
-            verificationSymbolMeaning.textColor = .systemBlue
+            verificationSymbolMeaning.textColor = .systemGreen
         case .suspected:
             verifiedImageView.isHidden=false
             verifiedImageView.image = UIImage(systemName: "exclamationmark.circle.fill")
-            verifiedImageView.tintColor = .systemYellow
+            verifiedImageView.tintColor = .systemRed
             verificationSymbolMeaning.text = "This account has been reported spam multiple times, procede with caution"
-            verificationSymbolMeaning.textColor = .systemYellow
+            verificationSymbolMeaning.textColor = .systemRed
         case .unknown:
-            verifiedImageView.isHidden=true
+//            verifiedImageView.isHidden=true
+            verifiedImageView.isHidden=false
+            verifiedImageView.image = UIImage(systemName: "questionmark.circle.fill")
+            verifiedImageView.tintColor = .systemYellow
+            verificationSymbolMeaning.text = "Neither suspected nor verified"
+            verificationSymbolMeaning.textColor = .yellow
         }
         // Do any additional setup after loading the view.
     }
