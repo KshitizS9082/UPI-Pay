@@ -186,7 +186,20 @@ class UPIPinViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.delegate?.dismissMyself()
             }
+            
+            let boldAttribute = [
+                NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Bold", size: 18.0)!
+            ]
+            let regularAttribute = [
+                NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Light", size: 18.0)!
+            ]
+            let newString = NSMutableAttributedString()
+            newString.append(NSAttributedString(string:  "payment worth Rs. "+String(paymentValue) , attributes: regularAttribute))
+            newString.append(NSAttributedString(string: " is being done to ", attributes: boldAttribute))
+            newString.append(NSAttributedString(string:  person.name + " from " + bankName, attributes: regularAttribute))
+            
             let alert = UIAlertController(title: "Confirm payment?", message: text, preferredStyle: .actionSheet)
+            alert.setValue(newString, forKey: "attributedMessage")
             alert.addAction(confirmAction)
             alert.addAction(cancelAction)
             print("Presenting actionsheet in upi pin vc")

@@ -20,9 +20,9 @@ class PayingValueViewController: UIViewController, payingValueProtocol {
         case choose_after
     }
     let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.PersonVC", category: "BTP")
-    var choosingStyle = BankChoosingStyle.choose_before
+    var choosingStyle = BankChoosingStyle.default_show
     var person = PersonInfo()
-    var bankName: String? = "Punjab National Bank"
+    var bankName: String? = "ABC National Bank"
     var paymentValue = 0
     var delegate: RequestMoneyProtocol?
     @IBOutlet weak var imageView: UIImageView!
