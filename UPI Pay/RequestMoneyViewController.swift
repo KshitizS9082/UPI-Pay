@@ -14,11 +14,14 @@ class RequestMoneyViewController: UIViewController {
     var person: PersonInfo?
     var value = 0
     var message = ""
+    var hideAlert = false
     let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.RequestMoneyVC", category: "BTP")
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var paymentValueLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var warningLabel: UILabel!
+    
     
     @IBOutlet weak var bgView: UIView!{
         didSet{
@@ -41,6 +44,8 @@ class RequestMoneyViewController: UIViewController {
         paymentValueLabel.text = "₹"+String(value)
         
         messageLabel.text = message
+        
+        warningLabel.isHidden = self.hideAlert
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {

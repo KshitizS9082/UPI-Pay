@@ -56,10 +56,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let info = self.extractUserInfo(userInfo: userInfo)
         logger.notice("AppDelegate received notification titled: \(info.title) in UPI-Pay")
         if info.title == "Payment Request"{
+            print(info.body)
             if let navvc = self.window?.rootViewController as? UINavigationController{
                 print("found navvc")
                 if let vc = navvc.viewControllers.first as? HomePageViewController{
-                    vc.handleReceiveMoneyRequest(person: PersonInfo(number: 111, name: "air", image: "image", verifications: .unknown), message: "receieve req msg", value: 100)
+                    if info.body=="Raj"{
+                        vc.handleReceiveMoneyRequest(person: PersonInfo(number: 111, name: "Raj", image: "image", verifications: .unknown), message: "receieve req msg", value: 100, tohide: false)
+                    }else if info.body=="Rohan"{
+                        vc.handleReceiveMoneyRequest(person: PersonInfo(number: 222, name: "Rohan", image: "image", verifications: .unknown), message: "receieve req msg", value: 100, tohide: true)
+                    }
+                    
                 }
             }
         }

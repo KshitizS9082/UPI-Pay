@@ -11,8 +11,8 @@ import OSLog
 
 class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     var payeeList = [
-        PersonInfo(number: 111, name: "User Name", image: "Airtel.jpg", verifications: .verified),
-        PersonInfo(number: 222, name: "Vodafone", image: "Vodafone.jpg"),
+        PersonInfo(number: 111, name: "Raj", image: "Airtel.jpg", verifications: .verified),
+        PersonInfo(number: 222, name: "Rohan", image: "Vodafone.jpg"),
         PersonInfo(number: 333, name: "Jio", image: "Jio.jpg", verifications: .suspected),
         PersonInfo(number: 444, name: "Idea", image: "Idea.jpg", verifications: .unknown)
     ]
@@ -61,6 +61,7 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
     var person: PersonInfo?
     var bankName: String? = "Punjab National Bank"
     var paymentValue = 0
+    var hideAlert = false
     var imagePicker = UIImagePickerController()
     @IBAction func grGalleryButClicked(_ sender: Any) {
         qrImagePicker()
@@ -85,10 +86,11 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
     }
     
     var requestMessage = ""
-    func handleReceiveMoneyRequest(person: PersonInfo, message: String, value: Int){
+    func handleReceiveMoneyRequest(person: PersonInfo, message: String, value: Int, tohide: Bool){
         self.person = person
         self.paymentValue = value
         self.requestMessage = message
+        self.hideAlert = tohide
         logger.notice("showing request Money view in UPI-Pay")
         self.performSegue(withIdentifier: "requestPaymentSegue", sender: self)
     }
@@ -203,6 +205,7 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
                 vc.person = self.person
                 vc.value = self.paymentValue
                 vc.message = self.requestMessage
+                vc.hideAlert = self.hideAlert
             }
         }
             
