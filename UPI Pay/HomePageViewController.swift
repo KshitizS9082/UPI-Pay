@@ -8,6 +8,8 @@
 import UIKit
 import OSLog
 
+var firstBalance = 250000
+var secondBalance = 150000
 
 class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     var payeeList = [

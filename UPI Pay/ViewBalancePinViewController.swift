@@ -49,14 +49,24 @@ class ViewBalancePinViewController: UIViewController {
     @objc func donePressed() {
         if pinTextField.text=="0000"{
             logger.notice("viewBalancePinVC done pressed with correct ping in UPI-Pay")
-            let alert = UIAlertController(title: "Account Balance", message: "Your account balance in \(bankName) is \("₹ 1111")", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Account Balance", message: "Your account balance in \(bankName) is ₹ \("-")", preferredStyle: .alert)
+            if self.bankName == "ABC National Bank"{
+                alert.message =  "Succesfully got bank balance for \(self.bankName) to be ₹\(firstBalance)"
+            }else{
+                alert.message = "Succesfully got bank balance for \(self.bankName) to be ₹\(secondBalance)"
+            }
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                                             switch action.style{
                                             case .default:
                                                 print("default")
                                                 self.logger.notice("viewBalancePinVC Alert OK pressed in UPI-Pay")
                                                 self.dismiss(animated: true) {
-                                                    print("Succesfully got bank balance for \(self.bankName) to be \("₹ 1111")")
+                                                    if self.bankName == "ABC National Bank"{
+                                                        print("Succesfully got bank balance for \(self.bankName) to be ₹\(firstBalance)")
+                                                    }else{
+                                                        print("Succesfully got bank balance for \(self.bankName) to be ₹\(secondBalance)")
+                                                    }
+                                                    
                                                     self.dismiss(animated: true, completion: nil)
                                                 }
                                             case .cancel:

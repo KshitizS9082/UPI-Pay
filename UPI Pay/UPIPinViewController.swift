@@ -63,6 +63,12 @@ class UPIPinViewController: UIViewController {
                                                 switch action.style{
                                                 case .default:
                                                     print("Payment Succesfull")
+                                                    if self.bankName == "ABC National Bank"{
+                                                        firstBalance -= self.paymentValue
+                                                    }else{
+                                                        secondBalance -= self.paymentValue
+                                                    }
+                                                    
                                                     self.logger.notice("UPIPinVC alert ok pressed in UPI-Pay")
                                                     self.dismiss(animated: true, completion: nil)
                                                     self.delegate?.dismissMyself()
@@ -89,28 +95,6 @@ class UPIPinViewController: UIViewController {
                                                 }}))
                 self.present(alert, animated: true, completion: nil)
             }
-//            else if notificationStyle == .actionSheetAfterPswd{
-//                self.pinTextField.resignFirstResponder()
-//                let text = "payment worth " + "Rs. " + String(paymentValue) + " is done to " + person.name + " from " + bankName
-//                let confirmAction = UIAlertAction(title: "Confirm", style: .default){
-//                    UIAlertAction in
-//                    print("Payment Succesfull")
-//                    self.logger.notice("UPIPinVC actionsheet ok pressed in UPI-Pay")
-//                    self.dismiss(animated: true, completion: nil)
-//                    self.delegate?.dismissMyself()
-//                }
-//                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel){
-//                    UIAlertAction in
-//                    print("Payment Canceled")
-//                    self.logger.notice("UPIPinVC actionsheet cancel pressed in UPI-Pay")
-//                    self.dismiss(animated: true, completion: nil)
-//                    self.delegate?.dismissMyself()
-//                }
-//                let alert = UIAlertController(title: "Confirm payment?", message: text, preferredStyle: .actionSheet)
-//                alert.addAction(confirmAction)
-//                alert.addAction(cancelAction)
-//                self.present(alert, animated: true, completion: nil)
-//            }
             else{
                 let alert = UIAlertController(title: "Paymnet Succesfull", message: "Payment worth \(paymentValue) done to \(person.name)", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
@@ -118,6 +102,11 @@ class UPIPinViewController: UIViewController {
                                                 case .default:
                                                     print("default")
                                                     self.logger.notice("UPIPinVC alert ok pressed in UPI-Pay")
+                                                    if self.bankName == "ABC National Bank"{
+                                                        firstBalance -= self.paymentValue
+                                                    }else{
+                                                        secondBalance -= self.paymentValue
+                                                    }
                                                     self.dismiss(animated: true) {
                                                         print("Succesfull Payment")
                                                         self.dismiss(animated: true, completion: nil)
@@ -139,6 +128,11 @@ class UPIPinViewController: UIViewController {
                                             switch action.style{
                                             case .default:
                                                 self.logger.notice("UPIPinVC alert ok pressed in UPI-Pay")
+                                                if self.bankName == "ABC National Bank"{
+                                                    firstBalance -= self.paymentValue
+                                                }else{
+                                                    secondBalance -= self.paymentValue
+                                                }
                                                 print("default")
                                             case .cancel:
                                                 print("cancel")
@@ -177,6 +171,11 @@ class UPIPinViewController: UIViewController {
             let confirmAction = UIAlertAction(title: "Confirm", style: .default){
                 UIAlertAction in
                 print("Payment Succesfull")
+//                if self.bankName == "ABC National Bank"{
+//                    firstBalance -= self.paymentValue
+//                }else{
+//                    secondBalance -= self.paymentValue
+//                }
                 self.logger.notice("UPIPinVC actionsheet ok pressed in UPI-Pay")
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel){

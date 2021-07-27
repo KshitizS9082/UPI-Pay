@@ -132,10 +132,10 @@ class PayingValueViewController: UIViewController, payingValueProtocol {
         }
         switch self.choosingStyle {
         case .default_hide:
-            self.bankName = "Punjab National Bank"
+            self.bankName = "ABC National Bank"
             self.amountTextField.becomeFirstResponder()
         case .default_show:
-            self.bankName = "Punjab National Bank"
+            self.bankName = "ABC National Bank"
             self.amountTextField.resignFirstResponder()
         case .choose_after:
             self.bankName = nil
