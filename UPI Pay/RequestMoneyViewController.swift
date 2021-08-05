@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import OSLog
+//import OSLog
 protocol RequestMoneyProtocol {
     func dismissMe()
 }
@@ -15,7 +15,7 @@ class RequestMoneyViewController: UIViewController {
     var value = 0
     var message = ""
     var hideAlert = false
-    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.RequestMoneyVC", category: "BTP")
+//    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.RequestMoneyVC", category: "BTP")
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var paymentValueLabel: UILabel!
@@ -49,19 +49,19 @@ class RequestMoneyViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        logger.notice("RequestMoneyVC will appear logging instance in UPI-Pay")
+//        logger.notice("RequestMoneyVC will appear logging instance in UPI-Pay")
     }
     @IBAction func payPressed(_ sender: Any) {
-        logger.notice("RequestMoneyVC Pay Pressed in UPI-Pay")
+//        logger.notice("RequestMoneyVC Pay Pressed in UPI-Pay")
         performSegue(withIdentifier: "requestMoneyUPIStage", sender: self)
     }
     @IBAction func xPressed(_ sender: Any) {
-        logger.notice("RequestMoneyVC X(Cancel) Pressed in UPI-Pay")
+//        logger.notice("RequestMoneyVC X(Cancel) Pressed in UPI-Pay")
 //        print("dismissed RequestMoneyViewController with cross")
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func declinePressed(_ sender: Any) {
-        logger.notice("RequestMoneyVC Decline Pressed in UPI-Pay")
+//        logger.notice("RequestMoneyVC Decline Pressed in UPI-Pay")
 //        print("dismissed RequestMoneyViewController with decline press")
         self.dismiss(animated: true, completion: nil)
     }

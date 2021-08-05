@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import OSLog
+//import OSLog
 
 class UPIPinViewController: UIViewController {
     enum notificationStyleEnum {
@@ -15,7 +15,7 @@ class UPIPinViewController: UIViewController {
         case actionSheetAfterPswd
         case nothing
     }
-    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.PersonVC", category: "BTP")
+//    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.PersonVC", category: "BTP")
     var notificationStyle = notificationStyleEnum.actionSheetAfterPswd
     var person = PersonInfo()
     var bankName = "STATE BANK OF INDIA"
@@ -46,16 +46,16 @@ class UPIPinViewController: UIViewController {
     @IBOutlet weak var infoView: UIView!
     
     @IBAction func cancelPressed(_ sender: Any) {
-        logger.notice("UPIPinVC cancelPressed in UPI-Pay")
+//        logger.notice("UPIPinVC cancelPressed in UPI-Pay")
         self.dismiss(animated: true) {
             self.delegate?.dismissMyself()
         }
     }
     
     @objc func donePressed() {
-        logger.notice("UPIPinVC donePressed in UPI-Pay")
+//        logger.notice("UPIPinVC donePressed in UPI-Pay")
         if pinTextField.text=="0000"{
-            logger.notice("UPIPinVC correct password in UPI-Pay")
+//            logger.notice("UPIPinVC correct password in UPI-Pay")
             if notificationStyle == .alertAfterPswd{
                 let text = "payment worth " + "Rs. " + String(paymentValue) + " is done to " + person.name + " from " + bankName
                 let alert = UIAlertController(title: "Alert", message: text, preferredStyle: .alert)
@@ -69,7 +69,7 @@ class UPIPinViewController: UIViewController {
                                                         secondBalance -= self.paymentValue
                                                     }
                                                     
-                                                    self.logger.notice("UPIPinVC alert ok pressed in UPI-Pay")
+//                                                    self.logger.notice("UPIPinVC alert ok pressed in UPI-Pay")
                                                     self.dismiss(animated: true, completion: nil)
                                                     self.delegate?.dismissMyself()
                                                 case .cancel:
@@ -85,7 +85,7 @@ class UPIPinViewController: UIViewController {
                                                     print("default 2")
                                                 case .cancel:
                                                     print("Payment Canceled")
-                                                    self.logger.notice("UPIPinVC alert payment cancel pressed in UPI-Pay")
+//                                                    self.logger.notice("UPIPinVC alert payment cancel pressed in UPI-Pay")
                                                     self.dismiss(animated: true, completion: nil)
                                                     self.delegate?.dismissMyself()
                                                 case .destructive:
@@ -101,7 +101,7 @@ class UPIPinViewController: UIViewController {
                                                 switch action.style{
                                                 case .default:
                                                     print("default")
-                                                    self.logger.notice("UPIPinVC alert ok pressed in UPI-Pay")
+//                                                    self.logger.notice("UPIPinVC alert ok pressed in UPI-Pay")
                                                     if self.bankName == "ABC National Bank"{
                                                         firstBalance -= self.paymentValue
                                                     }else{
@@ -122,12 +122,12 @@ class UPIPinViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             }
         }else{
-            logger.notice("UPIPinVC incorrect password showing alert in UPI-Pay")
+//            logger.notice("UPIPinVC incorrect password showing alert in UPI-Pay")
             let alert = UIAlertController(title: "Alert", message: "Invalid Password", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                                             switch action.style{
                                             case .default:
-                                                self.logger.notice("UPIPinVC alert ok pressed in UPI-Pay")
+//                                                self.logger.notice("UPIPinVC alert ok pressed in UPI-Pay")
                                                 if self.bankName == "ABC National Bank"{
                                                     firstBalance -= self.paymentValue
                                                 }else{
@@ -146,9 +146,9 @@ class UPIPinViewController: UIViewController {
     }
     @objc func expandPressed(){
         if infoView.isHidden{
-            self.logger.notice("UPIPinVC expand PaymentInfoImageView pressed in UPI-Pay")
+//            self.logger.notice("UPIPinVC expand PaymentInfoImageView pressed in UPI-Pay")
         }else{
-            self.logger.notice("UPIPinVC hide PaymentInfoImageView pressed in UPI-Pay")
+//            self.logger.notice("UPIPinVC hide PaymentInfoImageView pressed in UPI-Pay")
         }
         infoView.isHidden = !infoView.isHidden
     }
@@ -176,12 +176,12 @@ class UPIPinViewController: UIViewController {
 //                }else{
 //                    secondBalance -= self.paymentValue
 //                }
-                self.logger.notice("UPIPinVC actionsheet ok pressed in UPI-Pay")
+//                self.logger.notice("UPIPinVC actionsheet ok pressed in UPI-Pay")
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel){
                 UIAlertAction in
                 print("Payment Canceled")
-                self.logger.notice("UPIPinVC actionsheet cancel pressed in UPI-Pay")
+//                self.logger.notice("UPIPinVC actionsheet cancel pressed in UPI-Pay")
                 self.dismiss(animated: true, completion: nil)
                 self.delegate?.dismissMyself()
             }
@@ -208,11 +208,11 @@ class UPIPinViewController: UIViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-        logger.notice("UPIPinVC will appear logging instance in UPI-Pay")
+//        logger.notice("UPIPinVC will appear logging instance in UPI-Pay")
     }
     //TODO: not working setupNotification()
     func setupNotification(){
-        self.logger.notice("UPIPinVC notification being set in UPI-Pay")
+//        self.logger.notice("UPIPinVC notification being set in UPI-Pay")
         let text = "payment worth " + "Rs. " + String(paymentValue) + " is being done to " + person.name + " from " + bankName
         let center = UNUserNotificationCenter.current()
         

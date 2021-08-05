@@ -6,12 +6,12 @@
 //
 
 import UIKit
-import OSLog
+//import OSLog
 
-@main
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
-    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.AppDelegate", category: "BTP")
+//    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.AppDelegate", category: "BTP")
     var window: UIWindow?
     func registerForPushNotifications() {
         UNUserNotificationCenter.current()
@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         print("received notification tap")
-        logger.notice("AppDelegate received notification tap in UPI-Pay")
+//        logger.notice("AppDelegate received notification tap in UPI-Pay")
 //        let info = self.extractUserInfo(userInfo: userInfo)
 //        if info.title == "Payment Request"{
 //            if let navvc = self.window?.rootViewController as? UINavigationController{
@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
         let info = self.extractUserInfo(userInfo: userInfo)
-        logger.notice("AppDelegate received notification titled: \(info.title) in UPI-Pay")
+//        logger.notice("AppDelegate received notification titled: \(info.title) in UPI-Pay")
         if info.title == "Payment Request"{
             print(info.body)
             if let navvc = self.window?.rootViewController as? UINavigationController{
