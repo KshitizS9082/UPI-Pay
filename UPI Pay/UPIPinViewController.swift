@@ -178,7 +178,7 @@ class UPIPinViewController: UIViewController {
 //                }
 //                self.logger.notice("UPIPinVC actionsheet ok pressed in UPI-Pay")
             }
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel){
+            let cancelAction = UIAlertAction(title: "Cancel", style: .destructive){
                 UIAlertAction in
                 print("Payment Canceled")
 //                self.logger.notice("UPIPinVC actionsheet cancel pressed in UPI-Pay")
