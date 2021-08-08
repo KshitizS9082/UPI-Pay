@@ -220,6 +220,7 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
 //        logger.notice("homepage will appear logging instance in UPI-Pay")
     }
     override func viewDidLoad() {
-
+//        let url = URL(string: "deeplink-example://donnywals.com/")!
+//        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
