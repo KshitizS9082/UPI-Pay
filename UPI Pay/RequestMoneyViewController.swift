@@ -47,6 +47,28 @@ class RequestMoneyViewController: UIViewController {
         
         warningLabel.isHidden = self.hideAlert
         // Do any additional setup after loading the view.
+        
+        switch person!.verifications {
+        case .verified:
+            verifiedImageView.isHidden=false
+            verifiedImageView.image = UIImage(systemName: "checkmark.seal.fill")
+            verifiedImageView.tintColor = .systemGreen
+            verificationSymbolMeaning.text = "Verified Seller"
+            verificationSymbolMeaning.textColor = .systemGreen
+        case .suspected:
+            verifiedImageView.isHidden=false
+            verifiedImageView.image = UIImage(systemName: "exclamationmark.circle.fill")
+            verifiedImageView.tintColor = .systemRed
+            verificationSymbolMeaning.text = "This account has been reported spam multiple times, procede with caution"
+            verificationSymbolMeaning.textColor = .systemRed
+        case .unknown:
+            //            verifiedImageView.isHidden=true
+            verifiedImageView.isHidden=false
+            verifiedImageView.image = UIImage(systemName: "questionmark.circle.fill")
+            verifiedImageView.tintColor = .systemYellow
+            verificationSymbolMeaning.text = "Neither suspected nor verified"
+            verificationSymbolMeaning.textColor = .yellow
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
 //        logger.notice("RequestMoneyVC will appear logging instance in UPI-Pay")
@@ -66,7 +88,29 @@ class RequestMoneyViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-
+    @IBOutlet weak var verifiedImageView: UIImageView!{
+        didSet{
+            verifiedImageView.isUserInteractionEnabled=true
+            verifiedImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(verificationIVTap)))
+        }
+    }
+    @IBOutlet weak var verificationSymbolMeaning: UILabel!
+    @IBOutlet weak var verMeanBackg: UIView!{
+        didSet{
+            verMeanBackg.layer.cornerRadius = 3
+        }
+    }
+    
+    @objc func verificationIVTap(){
+            if verificationSymbolMeaning.isHidden{
+    //            logger.notice("PersonVC verificationIVTap to unhide meaning in UPI-Pay")
+            }else{
+    //            logger.notice("PersonVC verificationIVTap to hide meaning in UPI-Pay")
+            }
+            verificationSymbolMeaning.isHidden = !verificationSymbolMeaning.isHidden
+            verMeanBackg.isHidden = verificationSymbolMeaning.isHidden
+        }
+    
     
     // MARK: - Navigation
 
