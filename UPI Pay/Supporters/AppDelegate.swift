@@ -77,6 +77,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         print("URL: ", url)
+        let qid = url.absoluteString.split(separator: "/")[1].split(separator: "?")[1]
+        if qid == "14t3z"{
+            if let navvc = self.window?.rootViewController as? UINavigationController{
+                print("found navvc")
+                if let vc = navvc.viewControllers.first as? HomePageViewController{
+                    vc.handleReceiveMoneyRequest(person: PersonInfo(number: 111, name: "Raj", image: "image", verifications: .suspected), message: "receieve req msg", value: 100, tohide: false)
+                }
+            }
+        }
         return true
     }
     // MARK: UISceneSession Lifecycle

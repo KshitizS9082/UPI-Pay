@@ -25,6 +25,7 @@
 			<string>blindPolaroid.Page.UPI-Pay</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>com.UPI-Pay.me</string>
 				<string>deeplink-example</string>
 			</array>
 		</dict>
