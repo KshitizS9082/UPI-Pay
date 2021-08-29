@@ -64,7 +64,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         vc.handleReceiveMoneyRequest(person: PersonInfo(number: 111, name: "Raj", image: "image", verifications: .suspected), message: "receieve req msg", value: 100, tohide: false)
                     }else if info.body=="Rohan"{
                         vc.handleReceiveMoneyRequest(person: PersonInfo(number: 222, name: "Rohan", image: "image", verifications: .unknown), message: "receieve req msg", value: 100, tohide: true)
+                    }else if info.body=="Payment Request From Santosh - Rs. 5000"{
+                        vc.handleReceiveMoneyRequest(person: PersonInfo(number: 222, name: "Santosh", image: "image", verifications: .unknown), message: "You will receive 5000 Rs.", value: 5000, tohide: true)
+                    }else if info.body=="Payment Request From Flipkart - Rs. 5000"{
+                        vc.handleReceiveMoneyRequest(person: PersonInfo(number: 825408630, name: "Flipkart", image: "image", verifications: .unknown), message: "You will receive 2500 Rs. cashback ", value: 5000, tohide: true)
                     }
+                    else if info.body=="Payment Request From UPI Pay - Rs. 9000"{
+                        vc.handleReceiveMoneyRequest(person: PersonInfo(number: 980913482, name: "UPI Pay", image: "image", verifications: .unknown), message: "You will invest 9000 Rs. using UPI Pay", value: 9000, tohide: true)
+                    }
+                    
                     
                 }
             }

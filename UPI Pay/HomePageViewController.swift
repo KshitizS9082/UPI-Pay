@@ -28,7 +28,7 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
             qrImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(qrSegue)))
         }
     }
-    //QR Format: http://number/Value/debit
+    //QR Format: http://number/Value/name/verificationNumber(0=unknown,1=verified,2=suspected)/debit
     @IBOutlet weak var mobileNumberTextField: UITextField!{
         didSet{
             mobileNumberTextField.delegate=self
@@ -61,7 +61,7 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
     }
     @IBOutlet weak var qrGalleryButton: UIButton!
     var person: PersonInfo?
-    var bankName: String? = "Punjab National Bank"
+    var bankName: String? = "ABC National Bank"
     var paymentValue = 0
     var hideAlert = false
     var imagePicker = UIImagePickerController()
@@ -147,12 +147,23 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
                 if var decode = row.messageString{
                     decode = String(decode.dropFirst(7))
                     let decodeArr = decode.split{$0 == "/"}.map(String.init)
-                    for person in payeeList{
-                        if person.number == Int(decodeArr[0])!{
-                            self.person = person
-                        }
+//                    for person in payeeList{
+//                        if person.number == Int(decodeArr[0])!{
+//                            self.person = person
+//                        }
+//                    }
+                    paymentValue = Int(decodeArr[1])!
+                    let payeeNumber = Int(decodeArr[0])!
+                    let payeeName = decodeArr[2]
+                    let verNum = Int(decodeArr[3])!
+                    self.person = PersonInfo(number: payeeNumber, name: payeeName, image: "Image", verifications: .unknown)
+                    if verNum == 0 {
+                        self.person?.verifications = .unknown
+                    }else if verNum == 1 {
+                        self.person?.verifications = .verified
+                    }else if verNum == 2{
+                        self.person?.verifications = .suspected
                     }
-                    self.paymentValue = Int(decodeArr[1])!
                     print("perform segue: givePasscodeHP")
 //                    logger.notice("decoded QR and segueing to givePasscodeHP with person= \(self.person?.number ?? 0) and paymentvalue= \(self.paymentValue) in UPI-Pay")
                     performSegue(withIdentifier: "givePasscodeHP", sender: self)
