@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s16-HK-fso">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s16-HK-fso">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -297,6 +297,7 @@
                         <outlet property="numberLabel" destination="Gpg-nz-d4g" id="of1-OI-55C"/>
                         <outlet property="payButton" destination="UQS-fF-taN" id="E5E-ai-nh3"/>
                         <outlet property="paymentValueLabel" destination="AHW-Cq-9Fk" id="mIF-WB-CyD"/>
+                        <outlet property="personImageView" destination="IL8-D3-rll" id="iAn-pC-Cgu"/>
                         <outlet property="verMeanBackg" destination="TvX-G0-EGL" id="Qdh-Zf-ywI"/>
                         <outlet property="verificationSymbolMeaning" destination="q58-K6-0PA" id="cMS-5h-DeU"/>
                         <outlet property="verifiedImageView" destination="XTu-j2-pdB" id="8Vt-UG-0uV"/>
@@ -454,7 +455,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uie-Zf-ttB">
-                                        <rect key="frame" x="337.5" y="16.5" width="29.5" height="30"/>
+                                        <rect key="frame" x="334.5" y="16.5" width="32.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" image="arrow.right" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20" scale="large" weight="bold"/>
@@ -1333,7 +1334,7 @@
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
-        <image name="photo.on.rectangle" catalog="system" width="128" height="96"/>
+        <image name="photo.on.rectangle" catalog="system" width="128" height="97"/>
         <image name="scanQR" width="387" height="431"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">

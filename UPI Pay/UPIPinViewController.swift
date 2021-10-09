@@ -16,7 +16,7 @@ class UPIPinViewController: UIViewController {
         case nothing
     }
 //    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.PersonVC", category: "BTP")
-    var notificationStyle = notificationStyleEnum.actionSheetAfterPswd
+    var notificationStyle = notificationStyleEnum.vdl_notification
     var person = PersonInfo()
     var bankName = "STATE BANK OF INDIA"
     var paymentValue = 0
@@ -57,7 +57,7 @@ class UPIPinViewController: UIViewController {
         if pinTextField.text=="0000"{
 //            logger.notice("UPIPinVC correct password in UPI-Pay")
             if notificationStyle == .alertAfterPswd{
-                let text = "payment worth " + "Rs. " + String(paymentValue) + " is done to " + person.name + " from " + bankName
+                let text = "payment worth " + "Rs. " + String(paymentValue) + " is sent to " + person.name + " from " + bankName
                 let alert = UIAlertController(title: "Alert", message: text, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                                                 switch action.style{
@@ -96,7 +96,7 @@ class UPIPinViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             }
             else{
-                let alert = UIAlertController(title: "Paymnet Succesfull", message: "Payment worth \(paymentValue) done to \(person.name)", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Paymnet Succesfull", message: "Payment worth \(paymentValue) sent to \(person.name)", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                                                 switch action.style{
                                                 case .default:
@@ -167,7 +167,7 @@ class UPIPinViewController: UIViewController {
             setupNotification()
         }else if notificationStyle == .actionSheetAfterPswd{
             self.pinTextField.resignFirstResponder()
-            let text = "payment worth " + "Rs. " + String(paymentValue) + " is being done to " + person.name + " from " + bankName
+            let text = "payment worth " + "Rs. " + String(paymentValue) + " is being sent to " + person.name + " from " + bankName
             let confirmAction = UIAlertAction(title: "Confirm", style: .default){
                 UIAlertAction in
                 print("Payment Succesfull")
@@ -194,7 +194,7 @@ class UPIPinViewController: UIViewController {
             ]
             let newString = NSMutableAttributedString()
             newString.append(NSAttributedString(string:  "payment worth Rs. "+String(paymentValue) , attributes: regularAttribute))
-            newString.append(NSAttributedString(string: " is being done to ", attributes: boldAttribute))
+            newString.append(NSAttributedString(string: " is being sent to ", attributes: boldAttribute))
             newString.append(NSAttributedString(string:  person.name + " from " + bankName, attributes: regularAttribute))
             
             let alert = UIAlertController(title: "Confirm payment?", message: text, preferredStyle: .actionSheet)
@@ -213,7 +213,7 @@ class UPIPinViewController: UIViewController {
     //TODO: not working setupNotification()
     func setupNotification(){
 //        self.logger.notice("UPIPinVC notification being set in UPI-Pay")
-        let text = "payment worth " + "Rs. " + String(paymentValue) + " is being done to " + person.name + " from " + bankName
+        let text = "payment worth " + "Rs. " + String(paymentValue) + " is being sent to " + person.name + " from " + bankName
         let center = UNUserNotificationCenter.current()
         
         let content = UNMutableNotificationContent()

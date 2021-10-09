@@ -64,15 +64,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         vc.handleReceiveMoneyRequest(person: PersonInfo(number: 111, name: "Raj", image: "image", verifications: .suspected), message: "receieve req msg", value: 100, tohide: false)
                     }else if info.body=="Rohan"{
                         vc.handleReceiveMoneyRequest(person: PersonInfo(number: 222, name: "Rohan", image: "image", verifications: .unknown), message: "receieve req msg", value: 100, tohide: true)
+                    }else if info.body=="Payment Request From Jasbeer - Rs. 1500"{
+                        vc.handleReceiveMoneyRequest(person: PersonInfo(number: 980913482, name: "Jasbeer", image: "image", verifications: .verified), message: "Payment Request From Jasbeer - Rs. 1500", value: 1500, tohide: true)
+                    }else if info.body=="Payment Request From Geet - Rs. 5000"{
+                        vc.handleReceiveMoneyRequest(person: PersonInfo(number: 222, name: "Geet", image: "image", verifications: .suspected), message: "You will receive 5000 Rs.", value: 5000, tohide: true)
                     }else if info.body=="Payment Request From Santosh - Rs. 5000"{
                         vc.handleReceiveMoneyRequest(person: PersonInfo(number: 222, name: "Santosh", image: "image", verifications: .unknown), message: "You will receive 5000 Rs.", value: 5000, tohide: true)
-                    }else if info.body=="Payment Request From Flipkart - Rs. 5000"{
-                        vc.handleReceiveMoneyRequest(person: PersonInfo(number: 825408630, name: "Flipkart", image: "image", verifications: .unknown), message: "You will receive 2500 Rs. cashback ", value: 5000, tohide: true)
+                    }else if info.body=="Payment Request From Flipkart - Rs. 2500"{
+                        vc.handleReceiveMoneyRequest(person: PersonInfo(number: 8254086304, name: "Flipkart", image: "flipkart", verifications: .unknown), message: "You will receive 2500 Rs. cashback ", value: 2500, tohide: true)
                     }
-                    else if info.body=="Payment Request From UPI Pay - Rs. 9000"{
-                        vc.handleReceiveMoneyRequest(person: PersonInfo(number: 980913482, name: "UPI Pay", image: "image", verifications: .unknown), message: "You will invest 9000 Rs. using UPI Pay", value: 9000, tohide: true)
+                    else if info.body=="Payment Request From UPI Pay - Rs. 5000"{
+                        vc.handleReceiveMoneyRequest(person: PersonInfo(number: 980913482, name: "UPI Pay", image: "image", verifications: .unknown), message: "You will invest 9000 Rs. using UPI Pay", value: 5000, tohide: true)
                     }
-                    
                     
                 }
             }
@@ -93,7 +96,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     vc.handleReceiveMoneyRequest(person: PersonInfo(number: 111, name: "Raj", image: "image", verifications: .suspected), message: "receieve req msg", value: 100, tohide: false)
                 }
             }
+        }else if qid == "1qweio134nbf"{
+            if let navvc = self.window?.rootViewController as? UINavigationController{
+                //                print("found navvc")
+                if let vc = navvc.viewControllers.first as? HomePageViewController{
+                    vc.handleReceiveMoneyRequest(person: PersonInfo(number: 901489123, name: "Daya Textiles Ltd.", image: "image", verifications: .suspected), message: "Billing worth 1500 Rs to Daya Textiles Ltd.", value: 1500, tohide: false)
+                }
+            }
+        }else if qid == "io5243uio77fh89"{
+            if let navvc = self.window?.rootViewController as? UINavigationController{
+                //                print("found navvc")
+                if let vc = navvc.viewControllers.first as? HomePageViewController{
+                    vc.handleReceiveMoneyRequest(person: PersonInfo(number: 901489123, name: "Daya Textiles Ltd.", image: "image", verifications: .suspected), message: "Billing worth 1500 Rs to Daya Textiles Ltd.", value: 2500, tohide: false)
+                }
+            }
         }
+
         return true
     }
     // MARK: UISceneSession Lifecycle

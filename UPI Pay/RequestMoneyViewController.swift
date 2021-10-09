@@ -21,6 +21,7 @@ class RequestMoneyViewController: UIViewController {
     @IBOutlet weak var paymentValueLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var warningLabel: UILabel!
+    @IBOutlet weak var personImageView: UIImageView!
     
     
     @IBOutlet weak var bgView: UIView!{
@@ -44,6 +45,11 @@ class RequestMoneyViewController: UIViewController {
         paymentValueLabel.text = "₹"+String(value)
         
         messageLabel.text = message
+        
+        if let imgname = person?.image, let img = UIImage(named: imgname){
+            personImageView.image = img
+        }
+
         
         warningLabel.isHidden = self.hideAlert
         // Do any additional setup after loading the view.
