@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//import OSLog
+import OSLog
 struct PersonInfo{
     var number = 0
     var name = ""
@@ -19,10 +19,11 @@ struct PersonInfo{
     }
 }
 
+@available(iOS 14.0, *)
 class PersonViewController: UIViewController {
     var person = PersonInfo()
     var bankName = "STATE BANK OF INDIA"
-//    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.PersonVC", category: "BTP")
+    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.PersonVC", category: "BTP")
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
@@ -40,9 +41,9 @@ class PersonViewController: UIViewController {
     }
     @objc func verificationIVTap(){
         if verificationSymbolMeaning.isHidden{
-//            logger.notice("PersonVC verificationIVTap to unhide meaning in UPI-Pay")
+            logger.notice("PersonVC verificationIVTap to unhide meaning in UPI-Pay")
         }else{
-//            logger.notice("PersonVC verificationIVTap to hide meaning in UPI-Pay")
+            logger.notice("PersonVC verificationIVTap to hide meaning in UPI-Pay")
         }
         verificationSymbolMeaning.isHidden = !verificationSymbolMeaning.isHidden
         verMeanBackg.isHidden = verificationSymbolMeaning.isHidden
@@ -55,7 +56,7 @@ class PersonViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-//        logger.notice("PersonVC did load with person mobile no.: \(self.person.number) in UPI-Pay")
+        logger.notice("PersonVC did load with person mobile no.: \(self.person.number) in UPI-Pay")
 //        print("int personvc person = \(person)")
         nameLabel.text = person.name
         numberLabel.text = String(person.number)
@@ -83,12 +84,12 @@ class PersonViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-//        logger.notice("PersonVC will appear logging instance in UPI-Pay")
+        logger.notice("PersonVC will appear logging instance in UPI-Pay")
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("segue from home page")
         if segue.identifier == "payingValueSegue"{
-//            logger.notice("PersonVC segueing to payingValueVC in UPI-Pay")
+            logger.notice("PersonVC segueing to payingValueVC in UPI-Pay")
             if let vc = segue.destination as? PayingValueViewController{
 //                print("person = \(self.payeeList[selectedUser])")
                 vc.person = self.person

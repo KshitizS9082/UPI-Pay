@@ -6,11 +6,12 @@
 //
 
 import UIKit
-//import OSLog
+import OSLog
 
+@available(iOS 14.0, *)
 class ViewBalancePinViewController: UIViewController {
 
-//    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.viewBalancePinVC", category: "BTP")
+    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.viewBalancePinVC", category: "BTP")
 //    var person = PersonInfo()
     var bankName = "STATE BANK OF INDIA"
 //    var paymentValue = 0
@@ -48,7 +49,7 @@ class ViewBalancePinViewController: UIViewController {
     
     @objc func donePressed() {
         if pinTextField.text=="0000"{
-//            logger.notice("viewBalancePinVC done pressed with correct ping in UPI-Pay")
+            logger.notice("viewBalancePinVC done pressed with correct ping in UPI-Pay")
             let alert = UIAlertController(title: "Account Balance", message: "Your account balance in \(bankName) is ₹ \("-")", preferredStyle: .alert)
             if self.bankName == "ABC National Bank"{
                 alert.message =  "Succesfully got bank balance for \(self.bankName) to be ₹\(firstBalance)"
@@ -59,7 +60,7 @@ class ViewBalancePinViewController: UIViewController {
                                             switch action.style{
                                             case .default:
                                                 print("default")
-//                                                self.logger.notice("viewBalancePinVC Alert OK pressed in UPI-Pay")
+                                                self.logger.notice("viewBalancePinVC Alert OK pressed in UPI-Pay")
                                                 self.dismiss(animated: true) {
                                                     if self.bankName == "ABC National Bank"{
                                                         print("Succesfully got bank balance for \(self.bankName) to be ₹\(firstBalance)")
@@ -79,19 +80,19 @@ class ViewBalancePinViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             
         }else{
-//            logger.notice("viewBalancePinVC done pressed with incorrect pin in UPI-Pay")
+            logger.notice("viewBalancePinVC done pressed with incorrect pin in UPI-Pay")
             let alert = UIAlertController(title: "Alert", message: "Invalid Password", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                                             switch action.style{
                                             case .default:
                                                 print("default")
-//                                                self.logger.notice("viewBalancePinVC Alert OK pressed in UPI-Pay")
+                                                self.logger.notice("viewBalancePinVC Alert OK pressed in UPI-Pay")
                                             case .cancel:
                                                 print("cancel")
-//                                                self.logger.notice("viewBalancePinVC Alert cancel pressed in UPI-Pay")
+                                                self.logger.notice("viewBalancePinVC Alert cancel pressed in UPI-Pay")
                                             case .destructive:
                                                 print("destructive")
-//                                                self.logger.notice("viewBalancePinVC Alert destructive pressed in UPI-Pay")
+                                                self.logger.notice("viewBalancePinVC Alert destructive pressed in UPI-Pay")
                                             @unknown default:
                                                 print("idk lol")
                                             }}))
@@ -111,15 +112,15 @@ class ViewBalancePinViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-//        logger.notice("viewBalancePinVC will appear logging instance in UPI-Pay")
+        logger.notice("viewBalancePinVC will appear logging instance in UPI-Pay")
     }
     
     @IBAction func pinEdittingDidEnd(_ sender: UITextField) {
-//        self.logger.notice("viewBalancePinVC pinEdittingDidEnd in UPI-Pay")
+        self.logger.notice("viewBalancePinVC pinEdittingDidEnd in UPI-Pay")
     }
     
     @IBAction func pinEdittingDidBegin(_ sender: Any) {
-//        self.logger.notice("viewBalancePinVC pinEdittingDidBegin in UPI-Pay")
+        self.logger.notice("viewBalancePinVC pinEdittingDidBegin in UPI-Pay")
     }
     
 }

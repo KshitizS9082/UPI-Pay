@@ -6,17 +6,18 @@
 //
 
 import UIKit
-//import OSLog
+import OSLog
 protocol RequestMoneyProtocol {
     func dismissMe()
 }
+@available(iOS 14.0, *)
 class RequestMoneyViewController: UIViewController {
     var person: PersonInfo?
     var value = 0
     var message = ""
     var hideAlert = true
     var hideVerifiedImageTag = true
-//    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.RequestMoneyVC", category: "BTP")
+    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.RequestMoneyVC", category: "BTP")
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var paymentValueLabel: UILabel!
@@ -80,19 +81,19 @@ class RequestMoneyViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-//        logger.notice("RequestMoneyVC will appear logging instance in UPI-Pay")
+        logger.notice("RequestMoneyVC will appear logging instance in UPI-Pay")
     }
     @IBAction func payPressed(_ sender: Any) {
-//        logger.notice("RequestMoneyVC Pay Pressed in UPI-Pay")
+        logger.notice("RequestMoneyVC Pay Pressed in UPI-Pay")
         performSegue(withIdentifier: "requestMoneyUPIStage", sender: self)
     }
     @IBAction func xPressed(_ sender: Any) {
-//        logger.notice("RequestMoneyVC X(Cancel) Pressed in UPI-Pay")
+        logger.notice("RequestMoneyVC X(Cancel) Pressed in UPI-Pay")
 //        print("dismissed RequestMoneyViewController with cross")
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func declinePressed(_ sender: Any) {
-//        logger.notice("RequestMoneyVC Decline Pressed in UPI-Pay")
+        logger.notice("RequestMoneyVC Decline Pressed in UPI-Pay")
 //        print("dismissed RequestMoneyViewController with decline press")
         self.dismiss(animated: true, completion: nil)
     }
@@ -112,9 +113,9 @@ class RequestMoneyViewController: UIViewController {
     
     @objc func verificationIVTap(){
             if verificationSymbolMeaning.isHidden{
-    //            logger.notice("PersonVC verificationIVTap to unhide meaning in UPI-Pay")
+                logger.notice("PersonVC verificationIVTap to unhide meaning in UPI-Pay")
             }else{
-    //            logger.notice("PersonVC verificationIVTap to hide meaning in UPI-Pay")
+                logger.notice("PersonVC verificationIVTap to hide meaning in UPI-Pay")
             }
             verificationSymbolMeaning.isHidden = !verificationSymbolMeaning.isHidden
             verMeanBackg.isHidden = verificationSymbolMeaning.isHidden
@@ -141,6 +142,7 @@ class RequestMoneyViewController: UIViewController {
     
 
 }
+@available(iOS 14.0, *)
 extension RequestMoneyViewController: RequestMoneyProtocol{
     func dismissMe() {
         self.dismiss(animated: false, completion: nil)

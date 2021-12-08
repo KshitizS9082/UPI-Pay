@@ -6,11 +6,12 @@
 //
 
 import UIKit
-//import OSLog
+import OSLog
 protocol payingValueProtocol {
     func dismissMyself()
 }
 
+@available(iOS 14.0, *)
 class PayingValueViewController: UIViewController, payingValueProtocol {
     
     enum BankChoosingStyle{
@@ -19,7 +20,7 @@ class PayingValueViewController: UIViewController, payingValueProtocol {
         case choose_before
         case choose_after
     }
-//    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.PersonVC", category: "BTP")
+    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.PersonVC", category: "BTP")
     var choosingStyle = BankChoosingStyle.default_show
     var person = PersonInfo()
     var bankName: String? = "ABC National Bank"
@@ -51,9 +52,9 @@ class PayingValueViewController: UIViewController, payingValueProtocol {
     
     @objc func verificationIVTap(){
             if verificationSymbolMeaning.isHidden{
-    //            logger.notice("PersonVC verificationIVTap to unhide meaning in UPI-Pay")
+                logger.notice("PersonVC verificationIVTap to unhide meaning in UPI-Pay")
             }else{
-    //            logger.notice("PersonVC verificationIVTap to hide meaning in UPI-Pay")
+                logger.notice("PersonVC verificationIVTap to hide meaning in UPI-Pay")
             }
             verificationSymbolMeaning.isHidden = !verificationSymbolMeaning.isHidden
             verMeanBackg.isHidden = verificationSymbolMeaning.isHidden
@@ -90,25 +91,25 @@ class PayingValueViewController: UIViewController, payingValueProtocol {
         firsBankTickIV.isHidden=false
         secondBankTickIV.isHidden=true
         self.bankName = "ABC National Bank"
-//        logger.notice("PayingValueVC first bank(\(self.bankName ?? "") selected in UPI-Pay")
+        logger.notice("PayingValueVC first bank(\(self.bankName ?? "") selected in UPI-Pay")
     }
     @objc func secondBankSelected(){
         firsBankTickIV.isHidden=true
         secondBankTickIV.isHidden=false
         self.bankName = "DEF Bank"
-//        logger.notice("PayingValueVC second bank(\(self.bankName ?? "") selected in UPI-Pay")
+        logger.notice("PayingValueVC second bank(\(self.bankName ?? "") selected in UPI-Pay")
     }
     
     @objc func donePressed(){
-//        logger.notice("PayingValueVC done pressed selected in UPI-Pay")
+        logger.notice("PayingValueVC done pressed selected in UPI-Pay")
         if bankName==nil{
-//            logger.notice("PayingValueVC no bank selected, showing alert in UPI-Pay")
+            logger.notice("PayingValueVC no bank selected, showing alert in UPI-Pay")
             let alert = UIAlertController(title: "Alert", message: "No Bank Account Selected", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                   switch action.style{
                   case .default:
                         print("default")
-//                        self.logger.notice("PayingValueVC alert ok pressed in UPI-Pay")
+                        self.logger.notice("PayingValueVC alert ok pressed in UPI-Pay")
                   case .cancel:
                         print("cancel")
                   case .destructive:
@@ -121,15 +122,15 @@ class PayingValueViewController: UIViewController, payingValueProtocol {
         }
         if let intval = Int(amountTextField.text ?? "0"){
             paymentValue=intval
-//            self.logger.notice("PayingValueVC done pressed with paymentValue= \(self.paymentValue) in UPI-Pay")
+            self.logger.notice("PayingValueVC done pressed with paymentValue= \(self.paymentValue) in UPI-Pay")
         }else{
-//            self.logger.notice("PayingValueVC done pressed at invalid value in UPI-Pay")
+            self.logger.notice("PayingValueVC done pressed at invalid value in UPI-Pay")
             let alert = UIAlertController(title: "Alert", message: "invalid value", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                   switch action.style{
                   case .default:
                         print("default")
-//                    self.logger.notice("PayingValueVC alert ok pressed in UPI-Pay")
+                    self.logger.notice("PayingValueVC alert ok pressed in UPI-Pay")
                   case .cancel:
                         print("cancel")
                   case .destructive:
@@ -194,16 +195,16 @@ class PayingValueViewController: UIViewController, payingValueProtocol {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-//        logger.notice("PayingValueVC will appear logging instance in UPI-Pay")
+        logger.notice("PayingValueVC will appear logging instance in UPI-Pay")
     }
     @IBAction func cancelPressed(_ sender: Any) {
-//        self.logger.notice("PayingValueVC cancel pressed in UPI-Pay")
+        self.logger.notice("PayingValueVC cancel pressed in UPI-Pay")
         self.dismiss(animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier=="givePasscode", let vc = segue.destination as? UPIPinViewController{
-//            self.logger.notice("PayingValueVC segueing to UPIPinViewController in UPI-Pay")
+            self.logger.notice("PayingValueVC segueing to UPIPinViewController in UPI-Pay")
             vc.delegate=self
             vc.person=self.person
             vc.bankName=self.bankName!
