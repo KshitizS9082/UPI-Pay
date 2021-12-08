@@ -14,7 +14,8 @@ class RequestMoneyViewController: UIViewController {
     var person: PersonInfo?
     var value = 0
     var message = ""
-    var hideAlert = false
+    var hideAlert = true
+    var hideVerifiedImageTag = true
 //    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.RequestMoneyVC", category: "BTP")
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
@@ -75,6 +76,8 @@ class RequestMoneyViewController: UIViewController {
             verificationSymbolMeaning.text = "Neither suspected nor verified"
             verificationSymbolMeaning.textColor = .yellow
         }
+        verifiedImageView.isHidden=self.hideVerifiedImageTag
+        
     }
     override func viewWillAppear(_ animated: Bool) {
 //        logger.notice("RequestMoneyVC will appear logging instance in UPI-Pay")

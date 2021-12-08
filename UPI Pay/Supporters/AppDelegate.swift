@@ -61,13 +61,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 print("found navvc")
                 if let vc = navvc.viewControllers.first as? HomePageViewController{
                     if info.body=="Raj"{
-                        vc.handleReceiveMoneyRequest(person: PersonInfo(number: 111, name: "Raj", image: "image", verifications: .suspected), message: "receieve req msg", value: 100, tohide: false)
+                        vc.handleReceiveMoneyRequest(person: PersonInfo(number: 9182589127, name: "Raj", image: "image", verifications: .suspected), message: "receieve req msg", value: 100, tohide: true)
                     }else if info.body=="Rohan"{
                         vc.handleReceiveMoneyRequest(person: PersonInfo(number: 222, name: "Rohan", image: "image", verifications: .unknown), message: "receieve req msg", value: 100, tohide: true)
                     }else if info.body=="Payment Request From Jasbeer - Rs. 1500"{
                         vc.handleReceiveMoneyRequest(person: PersonInfo(number: 980913482, name: "Jasbeer", image: "image", verifications: .verified), message: "Payment Request From Jasbeer - Rs. 1500", value: 1500, tohide: true)
                     }else if info.body=="Payment Request From Geet - Rs. 5000"{
-                        vc.handleReceiveMoneyRequest(person: PersonInfo(number: 222, name: "Geet", image: "image", verifications: .suspected), message: "You will receive 5000 Rs.", value: 5000, tohide: true)
+                        vc.handleReceiveMoneyRequest(person: PersonInfo(number: 904385093, name: "Geet", image: "image", verifications: .suspected), message: "You will receive 5000 Rs.", value: 5000, tohide: true)
                     }else if info.body=="Payment Request From Santosh - Rs. 5000"{
                         vc.handleReceiveMoneyRequest(person: PersonInfo(number: 222, name: "Santosh", image: "image", verifications: .unknown), message: "You will receive 5000 Rs.", value: 5000, tohide: true)
                     }else if info.body=="Payment Request From Flipkart - Rs. 2500"{
