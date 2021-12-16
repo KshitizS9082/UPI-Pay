@@ -23,6 +23,7 @@ struct PersonInfo{
 class PersonViewController: UIViewController {
     var person = PersonInfo()
     var bankName = "STATE BANK OF INDIA"
+    var hideVerifiedImageTag = true
     let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.PersonVC", category: "BTP")
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -81,6 +82,7 @@ class PersonViewController: UIViewController {
             verificationSymbolMeaning.text = "Neither suspected nor verified"
             verificationSymbolMeaning.textColor = .yellow
         }
+        verifiedImageView.isHidden=self.hideVerifiedImageTag
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {

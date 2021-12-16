@@ -22,6 +22,7 @@ class PayingValueViewController: UIViewController, payingValueProtocol {
     }
     let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.PersonVC", category: "BTP")
     var choosingStyle = BankChoosingStyle.default_show
+    var hideVerifiedImageTag = true
     var person = PersonInfo()
     var bankName: String? = "ABC National Bank"
     var paymentValue = 0
@@ -193,6 +194,8 @@ class PayingValueViewController: UIViewController, payingValueProtocol {
             verificationSymbolMeaning.text = "Neither suspected nor verified"
             verificationSymbolMeaning.textColor = .yellow
         }
+        
+        verifiedImageView.isHidden=self.hideVerifiedImageTag
     }
     override func viewWillAppear(_ animated: Bool) {
         logger.notice("PayingValueVC will appear logging instance in UPI-Pay")
