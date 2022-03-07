@@ -29,9 +29,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         info = (title: title, body: body)
         return info
     }
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    func addLog(logStr: String) {
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        var str = format.string(from: Date()) + ": " +  logStr + "\n"
+        let filename = self.getDocumentsDirectory().appendingPathComponent("outputLog.txt")
+        do {
+            let oldString = try String(contentsOf: filename, encoding: String.Encoding.utf8)
+            str = oldString + str
+            try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+            print("ERROR in adding log string: \(str)")
+        }
+    }
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         print("received notification tap")
         logger.notice("AppDelegate received notification tap in UPI-Pay")
+        addLog(logStr: "AppDelegate received notification tap in UPI-Pay")
 //        let info = self.extractUserInfo(userInfo: userInfo)
 //        if info.title == "Payment Request"{
 //            if let navvc = self.window?.rootViewController as? UINavigationController{
@@ -56,6 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let userInfo = notification.request.content.userInfo
         let info = self.extractUserInfo(userInfo: userInfo)
         logger.notice("AppDelegate received notification titled: \(info.title) in UPI-Pay")
+        addLog(logStr: "AppDelegate received notification titled: \(info.title) in UPI-Pay")
         if info.title == "Payment Request"{
             print(info.body)
             if let navvc = self.window?.rootViewController as? UINavigationController{

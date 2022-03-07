@@ -43,8 +43,34 @@ class PersonViewController: UIViewController {
     @objc func verificationIVTap(){
         if verificationSymbolMeaning.isHidden{
             logger.notice("PersonVC verificationIVTap to unhide meaning in UPI-Pay")
+            
+            let format = DateFormatter()
+            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            var str = format.string(from: Date()) + ": " + "PersonVC verificationIVTap to unhide meaning in UPI-Pay\n"
+            let filename = self.getDocumentsDirectory().appendingPathComponent("outputLog.txt")
+            do {
+                let oldString = try String(contentsOf: filename, encoding: String.Encoding.utf8)
+                str = oldString + str
+                try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+            } catch {
+                print("ERROR in adding log string: \(str)")
+            }
+            
         }else{
             logger.notice("PersonVC verificationIVTap to hide meaning in UPI-Pay")
+            
+            let format = DateFormatter()
+            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            var str = format.string(from: Date()) + ": " + "PersonVC verificationIVTap to hide meaning in UPI-Pay\n"
+            let filename = self.getDocumentsDirectory().appendingPathComponent("outputLog.txt")
+            do {
+                let oldString = try String(contentsOf: filename, encoding: String.Encoding.utf8)
+                str = oldString + str
+                try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+            } catch {
+                print("ERROR in adding log string: \(str)")
+            }
+            
         }
         verificationSymbolMeaning.isHidden = !verificationSymbolMeaning.isHidden
         verMeanBackg.isHidden = verificationSymbolMeaning.isHidden
@@ -55,9 +81,26 @@ class PersonViewController: UIViewController {
             payButton.layer.cornerRadius = payButton.layer.frame.height/2.0
         }
     }
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         logger.notice("PersonVC did load with person mobile no.: \(self.person.number) in UPI-Pay")
+        
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        var str = format.string(from: Date()) + ": " + "PersonVC did load with person mobile no.: \(self.person.number) in UPI-Pay\n"
+        let filename = self.getDocumentsDirectory().appendingPathComponent("outputLog.txt")
+        do {
+            let oldString = try String(contentsOf: filename, encoding: String.Encoding.utf8)
+            str = oldString + str
+            try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+            print("ERROR in adding log string: \(str)")
+        }
+        
 //        print("int personvc person = \(person)")
         nameLabel.text = person.name
         numberLabel.text = String(person.number)
@@ -87,11 +130,37 @@ class PersonViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         logger.notice("PersonVC will appear logging instance in UPI-Pay")
+        
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        var str = format.string(from: Date()) + ": " + "PersonVC will appear logging instance in UPI-Pay\n"
+        let filename = self.getDocumentsDirectory().appendingPathComponent("outputLog.txt")
+        do {
+            let oldString = try String(contentsOf: filename, encoding: String.Encoding.utf8)
+            str = oldString + str
+            try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+            print("ERROR in adding log string: \(str)")
+        }
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("segue from home page")
         if segue.identifier == "payingValueSegue"{
             logger.notice("PersonVC segueing to payingValueVC in UPI-Pay")
+            
+            let format = DateFormatter()
+            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            var str = format.string(from: Date()) + ": " + "PersonVC segueing to payingValueVC in UPI-Pay\n"
+            let filename = self.getDocumentsDirectory().appendingPathComponent("outputLog.txt")
+            do {
+                let oldString = try String(contentsOf: filename, encoding: String.Encoding.utf8)
+                str = oldString + str
+                try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+            } catch {
+                print("ERROR in adding log string: \(str)")
+            }
+            
             if let vc = segue.destination as? PayingValueViewController{
 //                print("person = \(self.payeeList[selectedUser])")
                 vc.person = self.person

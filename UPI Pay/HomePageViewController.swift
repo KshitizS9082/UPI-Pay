@@ -56,8 +56,25 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
             personImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(personIVSelected)))
         }
     }
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
     @objc func personIVSelected(){
         logger.notice("selected to go to My account page in homepage in UPI-Pay")
+        
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        var str = format.string(from: Date()) + ": " + "selected to go to My account page in homepage in UPI-Pay \n"
+        let filename = getDocumentsDirectory().appendingPathComponent("outputLog.txt")
+        do {
+            let oldString = try String(contentsOf: filename, encoding: String.Encoding.utf8)
+            str = oldString + str
+            try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+            print("ERROR in adding log string: \(str)")
+        }
+        
         performSegue(withIdentifier: "myAcntSegue", sender: self)
     }
     @IBOutlet weak var qrGalleryButton: UIButton!
@@ -74,6 +91,20 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
         
         if sender.selectedSegmentIndex==0{
             logger.notice("selected QR Segment in UPI-Pay")
+            
+            let format = DateFormatter()
+            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            var str = format.string(from: Date()) + ": " + "selected QR Segment in UPI-Pay \n"
+            let filename = getDocumentsDirectory().appendingPathComponent("outputLog.txt")
+            do {
+                let oldString = try String(contentsOf: filename, encoding: String.Encoding.utf8)
+                str = oldString + str
+                try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+            } catch {
+                print("ERROR in adding log string: \(str)")
+            }
+
+            
             qrImageView.isHidden=false
             qrGalleryButton.isHidden=false
             mobileNumberTextField.isHidden=true
@@ -81,6 +112,19 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
             mobileNumberTextField.resignFirstResponder()
         }else{
             logger.notice("selected Pay via number Segment in UPI-Pay")
+            
+            let format = DateFormatter()
+            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            var str = format.string(from: Date()) + ": " + "selected Pay via number Segment in UPI-Pay\n"
+            let filename = getDocumentsDirectory().appendingPathComponent("outputLog.txt")
+            do {
+                let oldString = try String(contentsOf: filename, encoding: String.Encoding.utf8)
+                str = oldString + str
+                try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+            } catch {
+                print("ERROR in adding log string: \(str)")
+            }
+            
             qrImageView.isHidden=true
             qrGalleryButton.isHidden=true
             mobileNumberTextField.isHidden=false
@@ -95,7 +139,21 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
         self.requestMessage = message
         self.hideAlert = tohide
         logger.notice("showing request Money view in UPI-Pay")
+        
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        var str = format.string(from: Date()) + ": " + "showing request Money view in UPI-Pay\n"
+        let filename = getDocumentsDirectory().appendingPathComponent("outputLog.txt")
+        do {
+            let oldString = try String(contentsOf: filename, encoding: String.Encoding.utf8)
+            str = oldString + str
+            try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+            print("ERROR in adding log string: \(str)")
+        }
+        
         self.performSegue(withIdentifier: "requestPaymentSegue", sender: self)
+        
     }
     
     func qrImagePicker() {
@@ -107,6 +165,19 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
             imagePicker.sourceType = .savedPhotosAlbum
             imagePicker.allowsEditing = false
             logger.notice("preseting QR image picker in UPI-Pay")
+            
+            let format = DateFormatter()
+            format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            var str = format.string(from: Date()) + ": " + "preseting QR image picker in UPI-Pay\n"
+            let filename = getDocumentsDirectory().appendingPathComponent("outputLog.txt")
+            do {
+                let oldString = try String(contentsOf: filename, encoding: String.Encoding.utf8)
+                str = oldString + str
+                try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+            } catch {
+                print("ERROR in adding log string: \(str)")
+            }
+            
             present(imagePicker, animated: true, completion: nil)
         }
     }
@@ -167,6 +238,19 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
                     }
                     print("perform segue: givePasscodeHP")
                     logger.notice("decoded QR and segueing to givePasscodeHP with person= \(self.person?.number ?? 0) and paymentvalue= \(self.paymentValue) in UPI-Pay")
+                    
+                    let format = DateFormatter()
+                    format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    var str = format.string(from: Date()) + ": " + "decoded QR and segueing to givePasscodeHP with person= \(self.person?.number ?? 0) and paymentvalue= \(self.paymentValue) in UPI-Pay\n"
+                    let filename = getDocumentsDirectory().appendingPathComponent("outputLog.txt")
+                    do {
+                        let oldString = try String(contentsOf: filename, encoding: String.Encoding.utf8)
+                        str = oldString + str
+                        try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+                    } catch {
+                        print("ERROR in adding log string: \(str)")
+                    }
+                    
                     performSegue(withIdentifier: "givePasscodeHP", sender: self)
                 }
             }
@@ -184,6 +268,19 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
     @objc func textFieldDidChange(_ textField: UITextField) {
 //        print("mobileNumberValueChanged")
         logger.notice("homepage searching mobile no. \(textField.text ?? "") instance in UPI-Pay")
+        
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        var str = format.string(from: Date()) + ": " + "homepage searching mobile no. \(textField.text ?? "") instance in UPI-Pay\n"
+        let filename = getDocumentsDirectory().appendingPathComponent("outputLog.txt")
+        do {
+            let oldString = try String(contentsOf: filename, encoding: String.Encoding.utf8)
+            str = oldString + str
+            try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+            print("ERROR in adding log string: \(str)")
+        }
+        
         for ind in payeeList.indices{
             if let query = textField.text{
                 if String(payeeList[ind].number).hasPrefix(query){
@@ -207,6 +304,19 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
 //                print("person = \(self.payeeList[selectedUser])")
                 vc.person = self.payeeList[selectedUser]
                 self.logger.notice("selected User with number: \(self.payeeList[self.selectedUser].number) in UPI-Pay")
+                
+                let format = DateFormatter()
+                format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                var str = format.string(from: Date()) + ": " + "selected User with number: \(self.payeeList[self.selectedUser].number) in UPI-Pay"
+                let filename = getDocumentsDirectory().appendingPathComponent("outputLog.txt")
+                do {
+                    let oldString = try String(contentsOf: filename, encoding: String.Encoding.utf8)
+                    str = oldString + str
+                    try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+                } catch {
+                    print("ERROR in adding log string: \(str)")
+                }
+                
             }
         }else if segue.identifier=="givePasscodeHP", let vc = segue.destination as? UPIPinViewController{
 //            vc.delegate=self
@@ -230,6 +340,20 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
         logger.notice("homepage will appear logging instance in UPI-Pay")
+        
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        var str = format.string(from: Date()) + ": " + "homepage will appear logging instance in UPI-Pay \n"
+        let filename = getDocumentsDirectory().appendingPathComponent("outputLog.txt")
+        do {
+            let oldString = try String(contentsOf: filename, encoding: String.Encoding.utf8)
+            str = oldString + str
+            try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+            print("ERROR in adding log string: \(str)")
+        }
+
+        
     }
     override func viewDidLoad() {
 //        let url = URL(string: "deeplink-example://donnywals.com/")!
