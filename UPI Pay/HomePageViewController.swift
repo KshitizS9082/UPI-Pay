@@ -345,13 +345,22 @@ class HomePageViewController: UIViewController, UITextFieldDelegate, UINavigatio
         format.dateFormat = "yyyy-MM-dd HH:mm:ss"
         var str = format.string(from: Date()) + ": " + "homepage will appear logging instance in UPI-Pay \n"
         let filename = getDocumentsDirectory().appendingPathComponent("outputLog.txt")
-        do {
-            let oldString = try String(contentsOf: filename, encoding: String.Encoding.utf8)
-            str = oldString + str
-            try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
-        } catch {
-            print("ERROR in adding log string: \(str)")
+        if FileManager.default.fileExists(atPath: filename.path){
+            do {
+                let oldString = try String(contentsOf: filename, encoding: String.Encoding.utf8)
+                str = oldString + str
+                try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+            } catch {
+                print("ERROR in adding log string: \(str)")
+            }
+        }else{
+            do {
+                try str.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+            } catch {
+                print("ERROR in adding log string: \(str)")
+            }
         }
+        
 
         
     }
