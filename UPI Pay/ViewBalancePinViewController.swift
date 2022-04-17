@@ -6,12 +6,12 @@
 //
 
 import UIKit
-import OSLog
+//import OSLog
 
 @available(iOS 14.0, *)
 class ViewBalancePinViewController: UIViewController {
 
-    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.viewBalancePinVC", category: "BTP")
+//    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.viewBalancePinVC", category: "BTP")
 //    var person = PersonInfo()
     var bankName = "STATE BANK OF INDIA"
 //    var paymentValue = 0
@@ -49,7 +49,7 @@ class ViewBalancePinViewController: UIViewController {
     
     @objc func donePressed() {
         if pinTextField.text=="0000"{
-            logger.notice("viewBalancePinVC done pressed with correct ping in UPI-Pay")
+//            logger.notice("viewBalancePinVC done pressed with correct ping in UPI-Pay")
             
             let format = DateFormatter()
             format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -73,7 +73,7 @@ class ViewBalancePinViewController: UIViewController {
                                             switch action.style{
                                             case .default:
                                                 print("default")
-                                                self.logger.notice("viewBalancePinVC Alert OK pressed in UPI-Pay")
+//                                                self.logger.notice("viewBalancePinVC Alert OK pressed in UPI-Pay")
                                                 
                                                 let format = DateFormatter()
                                                 format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -106,7 +106,7 @@ class ViewBalancePinViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
             
         }else{
-            logger.notice("viewBalancePinVC done pressed with incorrect pin in UPI-Pay")
+//            logger.notice("viewBalancePinVC done pressed with incorrect pin in UPI-Pay")
             
             let format = DateFormatter()
             format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -125,7 +125,7 @@ class ViewBalancePinViewController: UIViewController {
                                             switch action.style{
                                             case .default:
                                                 print("default")
-                                                self.logger.notice("viewBalancePinVC Alert OK pressed in UPI-Pay")
+//                                                self.logger.notice("viewBalancePinVC Alert OK pressed in UPI-Pay")
                                                 
                                                 let format = DateFormatter()
                                                 format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -141,7 +141,7 @@ class ViewBalancePinViewController: UIViewController {
                                                 
                                             case .cancel:
                                                 print("cancel")
-                                                self.logger.notice("viewBalancePinVC Alert cancel pressed in UPI-Pay")
+//                                                self.logger.notice("viewBalancePinVC Alert cancel pressed in UPI-Pay")
                                                 
                                                 let format = DateFormatter()
                                                 format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -157,7 +157,7 @@ class ViewBalancePinViewController: UIViewController {
                                                 
                                             case .destructive:
                                                 print("destructive")
-                                                self.logger.notice("viewBalancePinVC Alert destructive pressed in UPI-Pay")
+//                                                self.logger.notice("viewBalancePinVC Alert destructive pressed in UPI-Pay")
                                                 
                                                 let format = DateFormatter()
                                                 format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -195,7 +195,7 @@ class ViewBalancePinViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        logger.notice("viewBalancePinVC will appear logging instance in UPI-Pay")
+//        logger.notice("viewBalancePinVC will appear logging instance in UPI-Pay")
         
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -213,7 +213,7 @@ class ViewBalancePinViewController: UIViewController {
     }
     
     @IBAction func pinEdittingDidEnd(_ sender: UITextField) {
-        self.logger.notice("viewBalancePinVC pinEdittingDidEnd in UPI-Pay")
+//        self.logger.notice("viewBalancePinVC pinEdittingDidEnd in UPI-Pay")
         
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -229,7 +229,7 @@ class ViewBalancePinViewController: UIViewController {
     }
     
     @IBAction func pinEdittingDidBegin(_ sender: Any) {
-        self.logger.notice("viewBalancePinVC pinEdittingDidBegin in UPI-Pay")
+//        self.logger.notice("viewBalancePinVC pinEdittingDidBegin in UPI-Pay")
         
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd HH:mm:ss"

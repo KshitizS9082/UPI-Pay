@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import OSLog
+//import OSLog
 protocol RequestMoneyProtocol {
     func dismissMe()
 }
@@ -17,7 +17,7 @@ class RequestMoneyViewController: UIViewController {
     var message = ""
     var hideAlert = true
     var hideVerifiedImageTag = true
-    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.RequestMoneyVC", category: "BTP")
+//    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.RequestMoneyVC", category: "BTP")
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var paymentValueLabel: UILabel!
@@ -81,7 +81,7 @@ class RequestMoneyViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        logger.notice("RequestMoneyVC will appear logging instance in UPI-Pay")
+//        logger.notice("RequestMoneyVC will appear logging instance in UPI-Pay")
         
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -96,7 +96,7 @@ class RequestMoneyViewController: UIViewController {
         }
     }
     @IBAction func payPressed(_ sender: Any) {
-        logger.notice("RequestMoneyVC Pay Pressed in UPI-Pay")
+//        logger.notice("RequestMoneyVC Pay Pressed in UPI-Pay")
         
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -113,7 +113,7 @@ class RequestMoneyViewController: UIViewController {
         performSegue(withIdentifier: "requestMoneyUPIStage", sender: self)
     }
     @IBAction func xPressed(_ sender: Any) {
-        logger.notice("RequestMoneyVC X(Cancel) Pressed in UPI-Pay")
+//        logger.notice("RequestMoneyVC X(Cancel) Pressed in UPI-Pay")
         
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -131,7 +131,7 @@ class RequestMoneyViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func declinePressed(_ sender: Any) {
-        logger.notice("RequestMoneyVC Decline Pressed in UPI-Pay")
+//        logger.notice("RequestMoneyVC Decline Pressed in UPI-Pay")
         
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -164,7 +164,7 @@ class RequestMoneyViewController: UIViewController {
     
     @objc func verificationIVTap(){
             if verificationSymbolMeaning.isHidden{
-                logger.notice("PersonVC verificationIVTap to unhide meaning in UPI-Pay")
+//                logger.notice("PersonVC verificationIVTap to unhide meaning in UPI-Pay")
                 
                 let format = DateFormatter()
                 format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -179,7 +179,7 @@ class RequestMoneyViewController: UIViewController {
                 }
                 
             }else{
-                logger.notice("PersonVC verificationIVTap to hide meaning in UPI-Pay")
+//                logger.notice("PersonVC verificationIVTap to hide meaning in UPI-Pay")
                 
                 let format = DateFormatter()
                 format.dateFormat = "yyyy-MM-dd HH:mm:ss"

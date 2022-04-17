@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import OSLog
+//import OSLog
 struct PersonInfo{
     var number = 0
     var name = ""
@@ -24,7 +24,7 @@ class PersonViewController: UIViewController {
     var person = PersonInfo()
     var bankName = "STATE BANK OF INDIA"
     var hideVerifiedImageTag = true
-    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.PersonVC", category: "BTP")
+//    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.PersonVC", category: "BTP")
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
@@ -42,7 +42,7 @@ class PersonViewController: UIViewController {
     }
     @objc func verificationIVTap(){
         if verificationSymbolMeaning.isHidden{
-            logger.notice("PersonVC verificationIVTap to unhide meaning in UPI-Pay")
+//            logger.notice("PersonVC verificationIVTap to unhide meaning in UPI-Pay")
             
             let format = DateFormatter()
             format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -57,7 +57,7 @@ class PersonViewController: UIViewController {
             }
             
         }else{
-            logger.notice("PersonVC verificationIVTap to hide meaning in UPI-Pay")
+//            logger.notice("PersonVC verificationIVTap to hide meaning in UPI-Pay")
             
             let format = DateFormatter()
             format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -87,7 +87,7 @@ class PersonViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        logger.notice("PersonVC did load with person mobile no.: \(self.person.number) in UPI-Pay")
+//        logger.notice("PersonVC did load with person mobile no.: \(self.person.number) in UPI-Pay")
         
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -129,7 +129,7 @@ class PersonViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        logger.notice("PersonVC will appear logging instance in UPI-Pay")
+//        logger.notice("PersonVC will appear logging instance in UPI-Pay")
         
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -147,7 +147,7 @@ class PersonViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("segue from home page")
         if segue.identifier == "payingValueSegue"{
-            logger.notice("PersonVC segueing to payingValueVC in UPI-Pay")
+//            logger.notice("PersonVC segueing to payingValueVC in UPI-Pay")
             
             let format = DateFormatter()
             format.dateFormat = "yyyy-MM-dd HH:mm:ss"

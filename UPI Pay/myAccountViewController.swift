@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import OSLog
+//import OSLog
 //protocol myAccountValueProtocol {
 //    func dismissMyself()
 //}
@@ -15,7 +15,7 @@ class myAccountViewController: UIViewController {
     
     var bankName: String? = "ABC National Bank"
     
-    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.myAccountVC", category: "BTP")
+//    let logger = Logger(subsystem: "blindPolaroid.Page.UPI-Pay.myAccountVC", category: "BTP")
     
     @IBOutlet weak var bankView: UIView!{
         didSet{
@@ -28,7 +28,7 @@ class myAccountViewController: UIViewController {
         }
     }
     @IBAction func viewBalanceClicked(_ sender: UIButton) {
-        logger.notice("view balance for bank: \(self.bankName ?? "") clicked in UPI-Pay")
+//        logger.notice("view balance for bank: \(self.bankName ?? "") clicked in UPI-Pay")
         
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -59,7 +59,7 @@ class myAccountViewController: UIViewController {
     }
     @IBOutlet weak var secondBankTickIV: UIImageView!
     @objc func firstBankSelected(){
-        logger.notice("myAccountView first bank selected in UPI-Pay")
+//        logger.notice("myAccountView first bank selected in UPI-Pay")
         
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -78,7 +78,7 @@ class myAccountViewController: UIViewController {
         self.bankName = "ABC National Bank"
     }
     @objc func secondBankSelected(){
-        logger.notice("myAccountView second bank selected in UPI-Pay")
+//        logger.notice("myAccountView second bank selected in UPI-Pay")
         
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -106,7 +106,7 @@ class myAccountViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        logger.notice("myAccountView will appear logging instance in UPI-Pay")
+//        logger.notice("myAccountView will appear logging instance in UPI-Pay")
         
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -130,7 +130,7 @@ class myAccountViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier=="viewBlaPinSegue"{
-            logger.notice("myAccountView view balance pin segue selected in UPI-Pay")
+//            logger.notice("myAccountView view balance pin segue selected in UPI-Pay")
             
             let format = DateFormatter()
             format.dateFormat = "yyyy-MM-dd HH:mm:ss"
